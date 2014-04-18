@@ -26,7 +26,7 @@ interface they already know.
 target them specifically. Want to highlight the zip code field on a signup 
 page, the "personal message" field on an action page, or the preferred donation 
 amount field on your donation form? By default, many of these fields have 
-no class name, and are contained in identically-named <div> elements with 
+no class name, and are contained in identically-named &lt;div&gt; elements with 
 the class name "formRow". Salsa Clave gives them semantic names like "zip", 
 "comment", and "donation_amount--50".
 
@@ -41,7 +41,8 @@ all past donation transactions), and clarify the meaning of "Group Membership"
 in the context of Salsa's email list signups.
 
 * Salsa Clave's advocacy component rewrites the list of signatures from a 
-table into <div> elements that can be positioned (for instance, responsively).
+table into &lt;div&gt; elements that can be positioned (for instance, 
+responsively).
 
 * And because Salsa Clave is modular, you only use and enable the packages and 
 the features you need.
@@ -77,7 +78,8 @@ Each script file corresponds to a different package in Salsa's suite.
 Currently, this includes:
 
 * **clave-advocacy.js**, for use with petitions and targeted actions
-* **clave-fundraising.js**, for use with donations and storefronts
+* **clave-donations.js**, for use with the donations package
+* **clave-storefronts.js**, for use with the storefronts package
 * **clave-profile.js**, for use with the profile manager and unsubscribe form
 
 Currently there is not a script file for the events or chapter Salsa packages. 
