@@ -20,6 +20,32 @@ advocacy, etc. without resorting to custom pages or embedded code -- meaning
 non-technical staff will be able to easily update them within the Salsa 
 interface they already know.
 
+# Examples
+
+* Salsa Clave assigns semantic class names to all fields, allowing you to 
+target them specifically. Want to highlight the zip code field on a signup 
+page, the "personal message" field on an action page, or the preferred donation 
+amount field on your donation form? By default, many of these fields have 
+no class name, and are contained in identically-named <div> elements with 
+the class name "formRow". Salsa Clave gives them semantic names like "zip", 
+"comment", and "donation_amount--50".
+
+* Salsa Clave's donation component allows you to move the donation amount 
+fields above the other fields, an emerging best practice.
+
+* Salsa Clave's profile component allows you to modify the "profile" and 
+"unsubscribe" pages supporters see when they modify their records with you. It 
+enables you to alter the hardcoded welcome text, remove tabs to packages you 
+may not use (like local events) or want supporters to have access to (like 
+all past donation transactions), and clarify the meaning of "Group Membership" 
+in the context of Salsa's email list signups.
+
+* Salsa Clave's advocacy component rewrites the list of signatures from a 
+table into <div> elements that can be positioned (for instance, responsively).
+
+* And because Salsa Clave is modular, you only use and enable the packages and 
+the features you need.
+
 # Caveats
 
 Salsa Clave is a set of JavaScript files that act on code output from Salsa. 
