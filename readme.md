@@ -33,6 +33,10 @@ This can be mitigated to some extent by minifying your files (see
 acted on will be "below the fold" -- that is, off the screen below introductory 
 text or images at the top of your form -- and will thus not be noticeable.
 
+Salsa Clave is designed to increase usability and beauty in your Salsa pages. 
+However, it does not ship with any defined CSS styles -- it simply gives you 
+the tools to more easily apply your own.
+
 # How to use these files
 
 Salsa Clave has code that's designed to be read. Each script file is heavily 
@@ -46,13 +50,16 @@ the code.
 Each script file corresponds to a different package in Salsa's suite. 
 Currently, this includes:
 
-* clave-advocacy.js, for use with petitions and targeted actions
-* clave-fundraising.js, for use with donations and storefronts
-* clave-profile.js, for use with the profile manager and unsubscribe form
+* **clave-advocacy.js**, for use with petitions and targeted actions
+* **clave-fundraising.js**, for use with donations and storefronts
+* **clave-profile.js**, for use with the profile manager and unsubscribe form
 
 Currently there is not a script file for the events or chapter Salsa packages. 
 The email package has no frontend display (outside of email) and therefore has 
 no script file.
+
+**clave-core.js** is required for any use, and is a good place to start 
+reading.
 
 # Installation
 
@@ -68,7 +75,7 @@ Details TK
 Unfortunately, because Salsa exists in a hosted environment, there's no way to 
 effectively pull in git updates. We therefore recommend that when you upload 
 your minified versions of the scripts, you add the latest version number from 
-the top of the script to the filename, e.g. clave_1.0.js.
+the top of the script to the filename, e.g. **clave_1.0.js**.
 
 # The name
 
@@ -85,3 +92,20 @@ salsa, the music.
 
 The clave (pronounced clah-vay) is, simply, the key to making the Salsa puzzle 
 more beautiful.
+
+# License
+
+Copyright (C) 2014  Ivan Boothe
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
