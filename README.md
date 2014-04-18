@@ -1,26 +1,28 @@
-# The purpose of Salsa Clave
+# Salsa Clave
 
-Working with the frontend of forms output by 
-[Salsa Labs](https://www.salsalabs.com/) suite of hosted tools for advocacy, 
-donations and more is hard. The default web forms often have usability problems 
-that hinder your supporters, leading to fewer donations and fewer actions. 
-There's misleading or unnecessary text that's hardcoded into the form; there's 
-HTML tags with no classes (and sometimes text with no HTML tags); there are 
-buttons or important information in hard-to-find places.
+Salsa Clave allows you to create sophisticated, customized forms hosted in 
+the [Salsa Labs](https://www.salsalabs.com/) platform without resorting to 
+custom pages or embedded code -- meaning non-technical staff will be able to 
+more easily update them within the Salsa interface they already know.
+
+## The purpose of Salsa Clave
+
+Working with the frontend of forms output by the Salsa suite of hosted tools 
+for advocacy, donations and more is hard. The default web forms often have 
+usability problems that hinder your supporters, leading to fewer donations 
+and fewer actions. There's misleading or unnecessary text that's hardcoded 
+into the form; there's HTML tags with no classes (and sometimes text with no 
+HTML tags); there are buttons or important information in hard-to-find places.
 
 Salsa Clave is a small set of JavaScript files (primarily jQuery) that refines 
-the Salsa forms' frontend. Its primary purpose is to allow you to reorder, 
-reword and retheme pieces of the web forms Salsa outputs to suit your needs. 
-Its method for most of this work is to rewrite output in semantic, classed 
-elements, and to provide the code for you to change hardcoded text when 
-necessary.
+the Salsa forms' frontend.
 
-Salsa Clave allows you to create sophisticated, customized forms for donations, 
-advocacy, etc. without resorting to custom pages or embedded code -- meaning 
-non-technical staff will be able to easily update them within the Salsa 
-interface they already know.
+Its primary purpose is to allow you to reorder, reword and retheme pieces of 
+the web forms Salsa outputs to suit your needs. Its method for most of this 
+work is to rewrite output in semantic, classed elements, and to provide the 
+code for you to change hardcoded text when necessary.
 
-# Examples
+## Examples
 
 * Salsa Clave assigns semantic class names to all fields, allowing you to 
 target them specifically. Want to highlight the zip code field on a signup 
@@ -47,7 +49,7 @@ responsively).
 * And because Salsa Clave is modular, you only use and enable the packages and 
 the features you need.
 
-# Caveats
+## Caveats
 
 Salsa Clave is a set of JavaScript files that act on code output from Salsa. 
 This means that they can't (and don't) act on the page until the page loads. In 
@@ -64,7 +66,7 @@ Salsa Clave is designed to increase usability and beauty in your Salsa pages.
 However, it does not ship with any defined CSS styles -- it simply gives you 
 the tools to more easily apply your own.
 
-# How to use these files
+## How to use these files
 
 Salsa Clave has code that's designed to be read. Each script file is heavily 
 commented, and includes functions that you can comment in or out to suit your 
@@ -89,7 +91,7 @@ no script file.
 **clave-core.js** is required for any use, and is a good place to start 
 reading.
 
-# Installation
+## Installation
 
 Details TK
 
@@ -105,7 +107,7 @@ effectively pull in git updates. We therefore recommend that when you upload
 your minified versions of the scripts, you add the latest version number from 
 the top of the script to the filename, e.g. **clave_1.0.js**.
 
-# The name
+## The name
 
 Most components related to Salsa are a play on salsa, the food (e.g. 
 [Salsa recipes](http://www.salsalabs.com/devs/recipes/), 
@@ -121,7 +123,7 @@ salsa, the music.
 The clave (pronounced clah-vay) is, simply, the key to making the Salsa puzzle 
 more beautiful.
 
-# License
+## License
 
 Copyright (C) 2014  Ivan Boothe
 
