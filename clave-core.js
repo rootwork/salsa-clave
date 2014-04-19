@@ -54,10 +54,12 @@ $(document).ready(function() {
 
 $('.formRow input').each(function(){
   var inputname = $(this).attr("name");
+  inputname = inputname.toLowerCase();
   $(this).parents('.formRow').addClass(inputname);
 });
 $('.formRow select').each(function(){
   var selectname = $(this).attr("name");
+  inputname = inputname.toLowerCase();
   $(this).parents('.formRow').addClass(selectname);
 });
 
