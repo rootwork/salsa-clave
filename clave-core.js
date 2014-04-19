@@ -59,7 +59,7 @@ $('.formRow input').each(function(){
 });
 $('.formRow select').each(function(){
   var selectname = $(this).attr("name");
-  inputname = inputname.toLowerCase();
+  selectname = selectname.toLowerCase();
   $(this).parents('.formRow').addClass(selectname);
 });
 
