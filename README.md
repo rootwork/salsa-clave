@@ -22,32 +22,72 @@ the web forms Salsa outputs to suit your needs. Its method for most of this
 work is to rewrite output in semantic, classed elements, and to provide the 
 code for you to change hardcoded text when necessary.
 
-## Examples
+## How to use these files
 
-* Salsa Clave assigns semantic class names to all fields, allowing you to 
-target them specifically. Want to highlight the zip code field on a signup 
-page, the "personal message" field on an action page, or the preferred donation 
-amount field on your donation form? By default, many of these fields have 
-no class name, and are contained in identically-named &lt;div&gt; elements with 
-the class name "formRow". Salsa Clave gives them semantic names like "zip", 
-"comment", and "donation_amount--50".
+Salsa Clave has code that's designed to be read. Each script file is heavily 
+commented, and includes functions that you can comment in or out to suit your 
+needs.
 
-* Salsa Clave's donation component allows you to move the donation amount 
-fields above the other fields, an emerging best practice.
+Perhaps most importantly, because Salsa Clave allows you to rewrite the wording 
+on the forms, you'll want to determine what wording works for you, and change 
+the code.
 
-* Salsa Clave's profile component allows you to modify the "profile" and 
-"unsubscribe" pages supporters see when they modify their records with you. It 
-enables you to alter the hardcoded welcome text, remove tabs to packages you 
-may not use (like local events) or want supporters to have access to (like 
-all past donation transactions), and clarify the meaning of "Group Membership" 
-in the context of Salsa's email list signups.
+## Features
 
-* Salsa Clave's advocacy component rewrites the list of signatures from a 
-table into &lt;div&gt; elements that can be positioned (for instance, 
-responsively).
+Salsa Clave is modular. The features listed below are optional, and are turned 
+off by default -- you only use and enable the features you need.
 
-* And because Salsa Clave is modular, you only use and enable the packages and 
-the features you need.
+Each script file corresponds to a different package in Salsa's suite. 
+Currently, this includes:
+
+* **clave-core.js** is required for any use, and is a good place to start 
+reading
+* **clave-advocacy.js**, for use with petitions and targeted actions
+* **clave-donations.js**, for use with the donations package
+* **clave-storefronts.js**, for use with the storefronts package
+* **clave-profiles.js**, for use with the profile manager and unsubscribe form
+
+Currently there is not a script file for the events or chapter Salsa packages. 
+The email package has no frontend display (outside of email) and therefore has 
+no script file.
+
+### Core
+
+Salsa Clave assigns semantic class names to all fields, allowing you to target 
+them specifically.
+
+Want to highlight the zip code field on a signup page, the "personal message" field on an action page, or the preferred donation amount field on your 
+donation form? By default, many of these fields have no class name, and are 
+contained in identically-named &lt;div&gt; elements with the class name 
+"formRow".
+
+Salsa Clave gives them semantic names like "zip", "comment", and 
+"donation_amount--50". You can then easily target them with CSS rules or 
+further jQuery manipulation.
+
+### Donations
+
+* Move the donation amount fields above the other fields, an emerging best 
+practice.
+
+### Advocacy
+
+* Alter the list of petition signatures from a table into &lt;div&gt; elements 
+that can be floated or positioned (for instance, responsively).
+
+### Profile manager
+
+* Customize the hard-coded welcome text that greets supporters when they load 
+the "profile manager" page (often encountered when clicking "update your 
+profile" in an email from Salsa). Salsa does not provide any other mechanism 
+for changing this text.
+
+* Remove tabs for packages you may not use (like local events) or want 
+supporters to have access to (like all past donation transactions).
+
+* Clarify the meaning for your supporters of "Group Membership," which 
+corresponds to Salsa's supporter groups and will almost always be interpreted 
+as "email lists to which I'm subscribed."
 
 ## Caveats
 
@@ -65,31 +105,6 @@ text or images at the top of your form -- and will thus not be noticeable.
 Salsa Clave is designed to increase usability and beauty in your Salsa pages. 
 However, it does not ship with any defined CSS styles -- it simply gives you 
 the tools to more easily apply your own.
-
-## How to use these files
-
-Salsa Clave has code that's designed to be read. Each script file is heavily 
-commented, and includes functions that you can comment in or out to suit your 
-needs.
-
-Perhaps most importantly, because Salsa Clave allows you to rewrite the wording 
-on the forms, you'll want to determine what wording works for you, and change 
-the code.
-
-Each script file corresponds to a different package in Salsa's suite. 
-Currently, this includes:
-
-* **clave-advocacy.js**, for use with petitions and targeted actions
-* **clave-donations.js**, for use with the donations package
-* **clave-storefronts.js**, for use with the storefronts package
-* **clave-profile.js**, for use with the profile manager and unsubscribe form
-
-Currently there is not a script file for the events or chapter Salsa packages. 
-The email package has no frontend display (outside of email) and therefore has 
-no script file.
-
-**clave-core.js** is required for any use, and is a good place to start 
-reading.
 
 ## Installation
 
