@@ -64,7 +64,22 @@ $('.formRow select').each(function(){
 });
 
 /*
-* 2. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
+* 2. REMOVING FORCED CLEARING
+*
+* Salsa inserts a bunch of empty <div> fields with the class "clear" as well 
+* as numerous stray <br> tags. Since form field rows are block-level, clearing 
+* elements anyway, this is mostly an annoyance and can create unwanted space 
+* in between or inside elements.
+*
+* Uncomment the following lines to remove these forced clears.
+*/
+
+// $('.salsa .clear').remove();
+// $('.salsa br').remove();
+// $('.salsa .clearall').remove();
+
+/*
+* 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
 *
 * In the first section, you can enable setting the country to alter the display 
 * of corresponding labels -- for instance choosing "United States" will result 
@@ -74,7 +89,7 @@ $('.formRow select').each(function(){
 * any other country is selected, that field is automatically set to "other" and 
 * hidden.
 * 
-* In sections 2b and 2c, you can set the default country to the United States 
+* In sections 3b and 3c, you can set the default country to the United States 
 * or Canada, pre-selecting it for your visitors, while allowing them to choose 
 * other countries.
 *
@@ -86,7 +101,7 @@ $('.formRow select').each(function(){
 */
 
 /*
-* 2a. Country-specific labels for address fields
+* 3a. Country-specific labels for address fields
 *
 * Alter the display of state/province and zip/postal code fields to match the 
 * terminology of particular countries, and hide the useless state/province 
@@ -112,7 +127,7 @@ $('.formRow select').each(function(){
 // });
 
 /*
-* 2b. Default country: United States
+* 3b. Default country: United States
 *
 * Set the default country to the United States by uncommenting the following 
 * lines.
@@ -129,7 +144,7 @@ $('.formRow select').each(function(){
 // $('.Country select option[value="CA"]').insertAfter($('.Country select option[value="US"]'));
 
 /*
-* 2c. Default country: Canada
+* 3c. Default country: Canada
 *
 * Set the default country to the Canada by uncommenting the following lines.
 */

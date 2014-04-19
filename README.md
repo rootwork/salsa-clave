@@ -65,6 +65,16 @@ Salsa Clave gives them semantic names like "zip", "comment", and
 "donation_amount--50". You can then easily target them with CSS rules or 
 further jQuery manipulation.
 
+Additional features in core you can enable:
+
+* Remove forced clearing (empty &lt;div&gt; elements and &lt;br&gt; tags)
+
+* Set a default country for all country fields
+
+* Change corresponding address labels based on the country selected -- e.g. 
+when "United States" is selected, "State" and "Zip code" are labels; when other 
+countries are selected, these are changed to "Province" and "Postal code".
+
 ### Donations
 
 * Move the donation amount fields above the other fields, an emerging best 
