@@ -92,7 +92,7 @@ and style them specifically as necessary.
 mobile users.
 
 * Improve the "in honor of" and "in memory of" sections with true headers, 
-and optionally making them collapsible.
+and optionally make them collapsible.
 
 * Place the terms of service agreement at the end of the form, out of the 
 way.
@@ -110,7 +110,7 @@ profile" in an email from Salsa). Salsa does not provide any other mechanism
 for changing this text.
 
 * Remove tabs for packages you may not use (like local events) or want 
-supporters to have access to (like all past donation transactions).
+supporters to have access to (like all past donations and purchases).
 
 * Clarify the meaning for your supporters of "Group Membership," which 
 corresponds to Salsa's supporter groups and will almost always be interpreted 
@@ -124,18 +124,21 @@ as "email lists to which I'm subscribed."
 
 Salsa Clave is a set of JavaScript files that act on code output from Salsa. 
 This means that they can't (and don't) act on the page until the page loads. In 
-some cases, this means elements might "jump around" in front of your eyes as 
-the page is loaded, the scripts are loaded, and the scripts perform their 
-functions.
+the case of some features, this means elements might "jump around" in front of 
+your eyes as the page is loaded, the scripts are loaded, and the scripts 
+perform their functions. This will generally only be noticeable when it 
+involves moving large parts of a form, and these situations are noted in the 
+scripts.
 
-This can be mitigated to some extent by minifying your files (see 
-"Installation"). Additionally, for many users the form elements that are being 
-acted on will be "below the fold" -- that is, off the screen below introductory 
-text or images at the top of your form -- and will thus not be noticeable.
+This effect can be mitigated to some extent by minifying your files (see 
+"Installation"). Additionally, for many users the larger form elements that are 
+being acted on will be "below the fold" -- that is, off the screen below 
+introductory text or images at the top of your form -- and will thus not be 
+noticeable.
 
-Salsa Clave is designed to increase usability and beauty in your Salsa pages. 
-However, it does not ship with any defined CSS styles -- it simply gives you 
-the tools to more easily apply your own.
+Finally, Salsa Clave is designed to increase usability and beauty in your Salsa 
+pages. However, it does not ship with any defined CSS styles -- it simply gives 
+you the tools to more easily apply your own.
 
 ## Installation
 
