@@ -46,7 +46,7 @@
 * recommended you leave this feature enabled.
 */
 
-$clave_semantic_classes = false;
+$clave_semantic_classes = true;
 
 /*
 * 2. REMOVING FORCED CLEARING
