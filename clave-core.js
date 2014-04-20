@@ -59,7 +59,7 @@ $clave_semantic_classes = true;
 * Enable this setting to remove these forced clears.
 */
 
-$clave_remove_clears = false;
+$clave_remove_clears = true;
 
 /*
 * 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
@@ -93,7 +93,7 @@ $clave_remove_clears = false;
 * Enable this setting to relabel these fields based on the selected country.
 */
 
-$clave_countrified_labels = false;
+$clave_countrified_labels = true;
 
 /*
 * 3b. Pre-select a country
@@ -122,7 +122,7 @@ $clave_countrified_labels = false;
 * France, change the value to 'FR'.
 */
 
-$clave_country_default = '';
+$clave_country_default = 'US';
 
 
 
@@ -155,6 +155,11 @@ if($clave_semantic_classes) {
     var selectname = $(this).attr("name");
     selectname = selectname.toLowerCase();
     $(this).parents('.formRow').addClass(selectname);
+  });
+  $('.formRow textarea').each(function(){
+    var textareaname = $(this).attr("name");
+    textareaname = textareaname.toLowerCase();
+    $(this).parents('.formRow').addClass(textareaname);
   });
 }
 
