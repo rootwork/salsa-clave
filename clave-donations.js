@@ -348,9 +348,9 @@ if($clave_honorof_collapsible) {
     divs.slice(i, i+3).wrapAll('<div class="honorof__section"></div>');
   }
   // Hide each section by default
-  $('.honorof__section').css('display','none');
+  $('.donation .honorof__section').css('display','none');
   // Apply the following to both the default and rewritten headers
-  var header_sel = '.honorof__header, p:contains("in honor of"), p:contains("in memory of")';
+  var header_sel = '.donation .honorof__header, .donation #honorof p:contains("in honor of"), .donation #honorof p:contains("in memory of")';
   // Grab the default attributes of links and set them on the header
   $(function(){
     var linkColor = $('a:link').css('color');
