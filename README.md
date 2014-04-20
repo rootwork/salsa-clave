@@ -32,7 +32,7 @@ Perhaps most importantly, because Salsa Clave allows you to rewrite the wording
 on the forms, you'll want to determine what wording works for you, and set that 
 in the code.
 
-## Features (version 0.2)
+## Features (version 0.3)
 
 Salsa Clave is modular. The features listed below are optional, and are turned 
 off by default -- you only use and enable the features you need.
@@ -67,9 +67,9 @@ further jQuery manipulation.
 
 Additional features in core you can enable:
 
-* Remove forced clearing (empty &lt;div&gt; elements and &lt;br&gt; tags)
+* Remove forced clearing (empty &lt;div&gt; elements and &lt;br&gt; tags).
 
-* Set a default country for all country fields
+* Set a default country for all country fields.
 
 * Change corresponding address labels based on the country selected -- e.g. 
 when "United States" is selected, "State" and "Zip code" are labels; when other 
@@ -87,6 +87,15 @@ practice.
 and style them specifically as necessary.
 
 * Pre-select a donation amount.
+
+* Setting HTML5 field types on numerical fields to trigger a number keypad for 
+mobile users.
+
+* Improving the "in honor of" and "in memory of" sections with true headers, 
+and optionally making them collapsible.
+
+* Placing the terms of service agreement at the end of the form, out of the 
+way.
 
 ### Advocacy
 
