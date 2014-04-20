@@ -46,7 +46,7 @@
 * recommended you leave this feature enabled.
 */
 
-$clave_semantic_classes = true;
+$clave_semantic_classes = false;
 
 /*
 * 2. REMOVING FORCED CLEARING
@@ -59,7 +59,7 @@ $clave_semantic_classes = true;
 * Enable this setting to remove these forced clears.
 */
 
-$clave_remove_clears = true;
+$clave_remove_clears = false;
 
 /*
 * 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
@@ -93,7 +93,7 @@ $clave_remove_clears = true;
 * Enable this setting to relabel these fields based on the selected country.
 */
 
-$clave_countrified_labels = true;
+$clave_countrified_labels = false;
 
 /*
 * 3b. Pre-select a country
@@ -122,7 +122,7 @@ $clave_countrified_labels = true;
 * France, change the value to 'FR'.
 */
 
-$clave_country_default = 'US';
+$clave_country_default = '';
 
 
 
