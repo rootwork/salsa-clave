@@ -1,0 +1,13 @@
+Salsa Clave 0.3
+----------------
+- Adding support for donation pages.
+- Adding textareas to semantic classes (core).
+
+Salsa Clave 0.2
+----------------
+- Refactoring to use variables instead of commenting to control features.
+
+Salsa Clave 0.1
+----------------
+- First official commit.
+- Support for core functions: semantic classes, removing forced clears.
