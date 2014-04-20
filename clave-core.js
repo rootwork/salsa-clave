@@ -59,7 +59,7 @@ $clave_semantic_classes = true;
 * Enable this setting to remove these forced clears.
 */
 
-$clave_remove_clears = false;
+$clave_remove_clears = true;
 
 /*
 * 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
@@ -93,19 +93,13 @@ $clave_remove_clears = false;
 * Enable this setting to relabel these fields based on the selected country.
 */
 
-$clave_countrified_labels = false;
+$clave_countrified_labels = true;
 
 /*
 * 3b. Pre-select a country
 *
 * Set a country to be automatically selected when the page loads. Visitors can 
 * still change the country if they need to.
-*
-* The default setting ('') leaves the selection form as it is.
-*
-* Enter the two-letter country code for the country you'd like to be selected. 
-* For instance, to select the United States, change the value to 'US'; for 
-* France, change the value to 'FR'.
 *
 * If the United States is selected, the labels "State" and "Zip code" will 
 * replace the default "State/Province" and "Zip/Postal Code". Canada will also  
@@ -120,9 +114,15 @@ $clave_countrified_labels = false;
 * default, and the "State/Province" field will be set to "other" and hidden. 
 * Salsa does not support any state/province values for countries other than the 
 * United States and Canada, so there's no reason to confuse people.
+*
+* The default setting ('') leaves the selection form as it is.
+*
+* Enter the two-letter country code for the country you'd like to be selected. 
+* For instance, to select the United States, change the value to 'US'; for 
+* France, change the value to 'FR'.
 */
 
-$clave_country_default = '';
+$clave_country_default = 'US';
 
 
 
@@ -207,7 +207,7 @@ $clave_country_sel = $clave_country_default.toUpperCase();
 $('.country select option[value="' + $clave_country_sel + '"]').attr('selected','selected');
 
 // United States-specific settings
-if($clave_country_default == 'US') {
+if($clave_country_sel == 'US') {
   $('.zip label').text('Zip code');
   $('.state label').text('State');
   $('.state select').html(states_us);
@@ -215,7 +215,7 @@ if($clave_country_default == 'US') {
 }
 
 // Canada-specific settings
-if($clave_country_default == 'CA') {
+if($clave_country_sel == 'CA') {
   $('.zip label').text('Postal code');
   $('.state label').text('Province');
   $('.state select').html(states_can);
