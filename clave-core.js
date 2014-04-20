@@ -1,5 +1,5 @@
 /*!
-* Salsa Clave 0.1
+* Salsa Clave 0.2
 * https://github.com/rootwork/salsa-clave
 *
 * Copyright (C) 2014  Ivan Boothe
@@ -18,60 +18,35 @@
 /*
 * USAGE
 *
-* Most of the functions in this file are intentionally "commented out" by 
-* default -- that is, they will be ignored and not executed unless they are 
-* "uncommented" by removing the two forward-slash symbols at the beginning of 
-* each line: //
+* Most of the features in Salsa Clave are intentionally turned off by default.
 *
-* Each function is heavily commented to explain its purpose, so you can choose 
-* whether or not to enable each feature.
+* Each feature is heavily commented to explain its purpose, so you can choose 
+* whether or not to enable it.
+* 
+* To enable a feature, change its value to 'true'.
 *
-* When you minify these files, all comments (except for the license 
-* information) will be removed in order to save space, so anything you choose 
-* not to use won't be loaded at all.
+* To disable a feature that has been enabled, change its value to 'false'.
 */
-
-/*
-* 0. VARIABLES
-*
-* This section creates some reuseable variables for various functions. These
-* should not be commented out, as they will only be used if necessary.
-*/
-
-var states_us = '<option value="">Select a state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AS">American Samoa</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">D.C.</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="MP">Northern Mariana Islands</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (the) Americas</option><option value="AE">Armed Forces Europe</option><option value="AP">Armed Forces Pacific</option><option value="ot">Other</option>';
-var states_can = '<option value="">Select a province</option><option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NF">Newfoundland</option><option value="NB">New Brunswick</option><option value="NS">Nova Scotia</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="YT">Yukon Territory</option><option value="ot">Other</option>';
-
-/* Do not remove or comment out the next line */
-$(document).ready(function() {
 
 /*
 * 1. SEMANTIC CLASSES
 *
-* This section adds basic semantic classes to all form rows <div>s, which by 
-* default have only the class "formRow". The classes that are added are derived 
-* from the name of the input field, select object, textarea, or checkbox/radio 
+* This adds basic semantic classes to all form rows <div>s, which by default 
+* have only the class "formRow". The classes that are added are derived from 
+* the name of the input field, select object, textarea, or checkbox/radio 
 * options contained by the <div>.
 *
 * For instance, the zip/postal code input field has the name attribute of 
 * "Zip", so the wrapper <div> will be assigned a class of "zip" in addition to 
 * "formRow".
 *
-* This is the only section that is commented in by default, because many of 
-* the other components of Salsa Clave depend on these semantic names. It's 
-* designed not to impact your existing display (all it does is add classes) 
-* and so it's not recommended that you comment out this section.
+* This is the only section that is enabled by default, because many of the 
+* other components of Salsa Clave depend on these semantic names. It's designed 
+* not to impact your existing display (all it does is add classes) and so it's 
+* recommended you leave this feature enabled.
 */
 
-$('.formRow input').each(function(){
-  var inputname = $(this).attr("name");
-  inputname = inputname.toLowerCase();
-  $(this).parents('.formRow').addClass(inputname);
-});
-$('.formRow select').each(function(){
-  var selectname = $(this).attr("name");
-  selectname = selectname.toLowerCase();
-  $(this).parents('.formRow').addClass(selectname);
-});
+$clave_semantic_classes = true;
 
 /*
 * 2. REMOVING FORCED CLEARING
@@ -81,12 +56,10 @@ $('.formRow select').each(function(){
 * elements anyway, this is mostly an annoyance and can create unwanted space 
 * in between or inside elements.
 *
-* Uncomment the following lines to remove these forced clears.
+* Enable this setting to remove these forced clears.
 */
 
-$('.salsa .clear').remove();
-$('.salsa .clearall').remove();
-$('.salsa br').remove();
+$clave_remove_clears = false;
 
 /*
 * 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
@@ -99,7 +72,7 @@ $('.salsa br').remove();
 * any other country is selected, that field is automatically set to "other" and 
 * hidden.
 * 
-* In sections 3b and 3c, you can set the default country to the United States 
+* In the second section, you can set the default country to the United States 
 * or Canada, pre-selecting it for your visitors, while allowing them to choose 
 * other countries.
 *
@@ -116,60 +89,138 @@ $('.salsa br').remove();
 * Alter the display of state/province and zip/postal code fields to match the 
 * terminology of particular countries, and hide the useless state/province 
 * field for any countries other than the United States and Canada.
+*
+* Enable this setting to relabel these fields based on the selected country.
 */
 
-// $('.country select').change(function() {
-//   if($(this).val() == 'US') {
-//     $('.zip label').text('Zip code');
-//     $('.state label').text('State');
-//     $('.state select').html(states_us);
-//     $('.state').slideDown(500);
-//   } else if($(this).val() == 'CA') {
-//     $('.zip label').text('Postal code');
-//     $('.state label').text('Province');
-//     $('.state select').html(states_can);
-//     $('.state').slideDown(500);
-//   } else {
-//     $('.zip label').text('Postal code');
-//     $('.state').slideUp(500);
-//     $('.state select option[value="ot"]').attr('selected','selected');
-//   }
-// });
+$clave_countrified_labels = false;
 
 /*
-* 3b. Default country: United States
+* 3b. Pre-select a country
 *
-* Set the default country to the United States by uncommenting the following 
-* lines.
+* Set a country to be automatically selected when the page loads. Visitors can 
+* still change the country if they need to.
+*
+* The default setting ('') leaves the selection form as it is.
+*
+* Enter the two-letter country code for the country you'd like to be selected. 
+* For instance, to select the United States, change the value to 'US'; for 
+* France, change the value to 'FR'.
+*
+* If the United States is selected, the labels "State" and "Zip code" will 
+* replace the default "State/Province" and "Zip/Postal Code". Canada will also  
+* be placed underneath the United States, with other countries following 
+* alphabetically.
+*
+* If Canada is selected, the labels "Province" and "Postal code" will replace 
+* the defaults. Canada will also be placed at the top of the list, with the
+* United States and then other countries following alphabetically.
+*
+* If any other country is selected, the label "Postal code" will replace the 
+* default, and the "State/Province" field will be set to "other" and hidden. 
+* Salsa does not support any state/province values for countries other than the 
+* United States and Canada, so there's no reason to confuse people.
 */
 
-// $('.country select option[value="US"]').attr('selected','selected');
+$clave_country_default = '';
 
-// $('.zip label').text('Zip code');
 
-// $('.state label').text('State');
 
-// $('.state select').html(states_us);
+/* 
+*  *************************************************************************
+*  End of user-configurable options. Do not modify anything below this line. 
+*  *************************************************************************
+*/
 
-// $('.country select option[value="CA"]').insertAfter($('.country select option[value="US"]'));
+
+
+// Setting up reuseable variables.
+var states_us = '<option value="">Select a state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AS">American Samoa</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">D.C.</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="MP">Northern Mariana Islands</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (the) Americas</option><option value="AE">Armed Forces Europe</option><option value="AP">Armed Forces Pacific</option><option value="ot">Other</option>';
+var states_can = '<option value="">Select a province</option><option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NF">Newfoundland</option><option value="NB">New Brunswick</option><option value="NS">Nova Scotia</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="YT">Yukon Territory</option><option value="ot">Other</option>';
+
+// Document ready
+$(document).ready(function() {
 
 /*
-* 3c. Default country: Canada
-*
-* Set the default country to the Canada by uncommenting the following lines.
+* 1. SEMANTIC CLASSES
 */
 
-// $('.country select option[value="CA"]').attr('selected','selected');
+if($clave_semantic_classes) {
+  $('.formRow input').each(function(){
+    var inputname = $(this).attr("name");
+    inputname = inputname.toLowerCase();
+    $(this).parents('.formRow').addClass(inputname);
+  });
+  $('.formRow select').each(function(){
+    var selectname = $(this).attr("name");
+    selectname = selectname.toLowerCase();
+    $(this).parents('.formRow').addClass(selectname);
+  });
+}
 
-// $('.zip label').text('Postal code');
+/*
+* 2. REMOVING FORCED CLEARING
+*/
 
-// $('.state label').text('Province');
+if($clave_remove_clears) {
+  $('.salsa .clear').remove();
+  $('.salsa .clearall').remove();
+  $('.salsa br').remove();
+}
 
-// $('.state select').html(states_can);
+/*
+* 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
+*/
 
-// $('.country select option[value="CA"]').insertAfter($('.country select option[value=""]'));
+/*
+* 3a. Country-specific labels for address fields
+*/
 
-// $('.country select option[value="US"]').insertAfter($('.country select option[value="CA"]'));
+if($clave_countrified_labels) {
+  $('.country select').change(function() {
+    if($(this).val() == 'US') {
+      $('.zip label').text('Zip code');
+      $('.state label').text('State');
+      $('.state select').html(states_us);
+      $('.state').slideDown(500);
+    } else if($(this).val() == 'CA') {
+      $('.zip label').text('Postal code');
+      $('.state label').text('Province');
+      $('.state select').html(states_can);
+      $('.state').slideDown(500);
+    } else {
+      $('.zip label').text('Postal code');
+      $('.state').slideUp(500);
+      $('.state select option[value="ot"]').attr('selected','selected');
+    }
+  });
+}
 
-/* Do not remove or comment out the next line */
-});
+/*
+* 3b. Pre-select a country
+*/
+
+// Ensure the value is uppercase.
+$clave_country_sel = $clave_country_default.toUpperCase();
+
+// Set the country
+$('.country select option[value="' + $clave_country_sel + '"]').attr('selected','selected');
+
+// United States-specific settings
+if($clave_country_default == 'US') {
+  $('.zip label').text('Zip code');
+  $('.state label').text('State');
+  $('.state select').html(states_us);
+  $('.country select option[value="CA"]').insertAfter($('.country select option[value="US"]'));
+}
+
+// Canada-specific settings
+if($clave_country_default == 'CA') {
+  $('.zip label').text('Postal code');
+  $('.state label').text('Province');
+  $('.state select').html(states_can);
+  $('.country select option[value="CA"]').insertAfter($('.country select option[value=""]'));
+  $('.country select option[value="US"]').insertAfter($('.country select option[value="CA"]'));
+}
+
+}); // End of document ready

@@ -25,14 +25,14 @@ code for you to change hardcoded text when necessary.
 ## How to use these files
 
 Salsa Clave has code that's designed to be read. Each script file is heavily 
-commented, and includes functions that you can comment in or out to suit your 
+commented, and includes features that you can enable or disable to suit your 
 needs.
 
 Perhaps most importantly, because Salsa Clave allows you to rewrite the wording 
-on the forms, you'll want to determine what wording works for you, and change 
-the code.
+on the forms, you'll want to determine what wording works for you, and set that 
+in the code.
 
-## Features
+## Features (version 0.2)
 
 Salsa Clave is modular. The features listed below are optional, and are turned 
 off by default -- you only use and enable the features you need.
@@ -77,8 +77,16 @@ countries are selected, these are changed to "Province" and "Postal code".
 
 ### Donations
 
-* Move the donation amount fields above the other fields, an emerging best 
+* Remove the "required" notation on donation form fields, since nearly every 
+field on a donation form is required.
+
+* Move the donation amount fields before the other fields, an emerging best 
 practice.
+
+* Add semantic classes to each of the donation amounts, so you can target 
+and style them specifically as necessary.
+
+* Pre-select a donation amount.
 
 ### Advocacy
 
@@ -121,16 +129,16 @@ the tools to more easily apply your own.
 Details TK
 
 1. selecting the files for the packages you use
-2. commenting in the portions you need
+2. enabling the features you need
 3. optionally concatenating the files
 4. minifying the file(s)
 5. uploading the file(s) to Salsa
 6. updating your templates
 
 Unfortunately, because Salsa exists in a hosted environment, there's no way to 
-effectively pull in git updates. We therefore recommend that when you upload 
-your minified versions of the scripts, you add the latest version number from 
-the top of the script to the filename, e.g. **clave_1.0.js**.
+effectively pull in git updates. Instead, when you upload your minified 
+versions of the scripts, you should add the latest version number from the top 
+of the script to the filename, e.g. **clave_1.0.js**.
 
 ## The name
 
@@ -147,6 +155,17 @@ salsa, the music.
 
 The clave (pronounced clah-vay) is, simply, the key to making the Salsa puzzle 
 more beautiful.
+
+## Credits
+
+Salsa Clave was created by Ivan Boothe of [Rootwork.org](http://rootwork.org). 
+I am a frontend developer working primarily with nonprofits and social change 
+organizations. I've been a user of Salsa (formerly Democracy in Action) in one 
+form or another since 2004.
+
+The features of Salsa Clave were initially driven and funded by the 
+[Fellowship of Reconciliation](http://forusa.org), an interfaith organization 
+working for peace, justice and nonviolence since 1915.
 
 ## License
 
