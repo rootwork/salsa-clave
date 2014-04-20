@@ -20,7 +20,7 @@ the Salsa forms' frontend.
 Its primary purpose is to allow you to reorder, reword and retheme pieces of 
 the web forms Salsa outputs to suit your needs. Its method for most of this 
 work is to rewrite output in semantic, classed elements, and to provide the 
-code for you to change hardcoded text when necessary.
+ability for you to change hardcoded text in forms.
 
 ## How to use these files
 
@@ -42,10 +42,10 @@ Currently, this includes:
 
 * **clave-core.js** is required for any use, and is a good place to start 
 reading
-* **clave-advocacy.js**, for use with petitions and targeted actions
+* **clave-advocacy.js (pending)**, for use with petitions and targeted actions
 * **clave-donations.js**, for use with the donations package
-* **clave-storefronts.js**, for use with the storefronts package
-* **clave-profiles.js**, for use with the profile manager and unsubscribe form
+* **clave-storefronts.js (pending)**, for use with the storefronts package
+* **clave-profiles.js (pending)**, for use with the profile manager and unsubscribe form
 
 Currently there is not a script file for the events or chapter Salsa packages. 
 The email package has no frontend display (outside of email) and therefore has 
