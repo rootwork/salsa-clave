@@ -1,6 +1,6 @@
 /*
 * CLAVE DONATIONS
-* Salsa Clave 0.2
+* Salsa Clave 0.3
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to Salsa donation pages.

@@ -1,5 +1,5 @@
 /*!
-* Salsa Clave 0.2
+* Salsa Clave 0.3
 * https://github.com/rootwork/salsa-clave
 *
 * Copyright (C) 2014  Ivan Boothe
