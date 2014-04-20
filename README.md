@@ -44,8 +44,8 @@ Currently, this includes:
 reading
 * **clave-advocacy.js (pending)**, for use with petitions and targeted actions
 * **clave-donations.js**, for use with the donations package
-* **clave-storefronts.js (pending)**, for use with the storefronts package
 * **clave-profiles.js (pending)**, for use with the profile manager and unsubscribe form
+* **clave-storefronts.js (pending)**, for use with the storefronts package
 
 Currently there is not a script file for the events or chapter Salsa packages. 
 The email package has no frontend display (outside of email) and therefore has 
@@ -88,21 +88,21 @@ and style them specifically as necessary.
 
 * Pre-select a donation amount.
 
-* Setting HTML5 field types on numerical fields to trigger a number keypad for 
+* Set HTML5 field types on numerical fields to trigger a number keypad for 
 mobile users.
 
-* Improving the "in honor of" and "in memory of" sections with true headers, 
+* Improve the "in honor of" and "in memory of" sections with true headers, 
 and optionally making them collapsible.
 
-* Placing the terms of service agreement at the end of the form, out of the 
+* Place the terms of service agreement at the end of the form, out of the 
 way.
 
-### Advocacy
+### Advocacy (pending)
 
 * Alter the list of petition signatures from a table into &lt;div&gt; elements 
 that can be floated or positioned (for instance, responsively).
 
-### Profile manager
+### Profile manager (pending)
 
 * Customize the hard-coded welcome text that greets supporters when they load 
 the "profile manager" page (often encountered when clicking "update your 
@@ -115,6 +115,10 @@ supporters to have access to (like all past donation transactions).
 * Clarify the meaning for your supporters of "Group Membership," which 
 corresponds to Salsa's supporter groups and will almost always be interpreted 
 as "email lists to which I'm subscribed."
+
+### Storefronts (pending)
+
+* Clean up the checkout page.
 
 ## Caveats
 
