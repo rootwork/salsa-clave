@@ -117,7 +117,7 @@ supporters to have access to (like all past donations and purchases).
 corresponds to Salsa's supporter groups and will almost always be interpreted 
 as "email lists to which I'm subscribed."
 
-### Storefronts (pending)
+### Storefronts
 
 * Add semantic classes to storefront items and their elements to make it easier 
 to style their display.
