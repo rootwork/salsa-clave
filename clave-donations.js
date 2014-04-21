@@ -1,6 +1,6 @@
 /*
 * CLAVE DONATIONS
-* Salsa Clave 0.3
+* Salsa Clave 0.4
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to Salsa donation pages.
@@ -34,7 +34,7 @@
 * Enable this setting to remove these required-field notations.
 */
 
-$clave_remove_required = false;
+$clave_donations_remove_required = false;
 
 /*
 * 2. PLACING DONATION AMOUNTS AT THE BEGINNING
@@ -59,7 +59,7 @@ $clave_remove_required = false;
 * form.
 */
 
-$clave_prepend_donations = false;
+$clave_donations_prepend_amounts = false;
 
 /*
 * 3. PLACING TERMS OF SERVICE NOTICE AT THE END
@@ -73,7 +73,7 @@ $clave_prepend_donations = false;
 * form.
 */
 
-$clave_append_tos = false;
+$clave_donations_append_tos = false;
 
 /*
 * 4. ADD SEMANTIC CLASSES TO DONATION AMOUNTS
@@ -89,7 +89,7 @@ $clave_append_tos = false;
 * Enable this setting to add semantic classes to the donation amount fields.
 */
 
-$clave_semantic_classes_donations = false;
+$clave_donations_semantic_classes = false;
 
 /*
 * 5. PRE-SELECTING A DONATION AMOUNT
@@ -107,7 +107,7 @@ $clave_semantic_classes_donations = false;
 * Enter the donation amount you wish to pre-select (e.g. '50' for $50.00).
 */
 
-$clave_donation_preselect = '';
+$clave_donations_preselect_amount = '';
 
 /*
 * 6. SET HTML5 INPUT FIELD TYPES
@@ -123,10 +123,10 @@ $clave_donation_preselect = '';
 */
 
 // Email field
-$clave_html5_email = false;
+$clave_donations_html5_email = false;
 
 // Phone number field
-$clave_html5_phone = false;
+$clave_donations_html5_phone = false;
 
 /*
 * 6b. Zip code field
@@ -140,7 +140,7 @@ $clave_html5_phone = false;
 * ONLY allow numerical postal codes.
 */
 
-$clave_html5_zip = false;
+$clave_donations_html5_zip = false;
 
 /*
 * 6c. Credit card fields
@@ -168,7 +168,7 @@ $clave_html5_zip = false;
 * numerical pattern or number, respectively.
 */
 
-$clave_html5_cc = '';
+$clave_donations_html5_cc = '';
 
 /*
 * 6d. 'Other' donation amount
@@ -197,7 +197,7 @@ $clave_html5_cc = '';
 * field to a numerical pattern or number, respectively.
 */
 
-$clave_html5_donation_other = '';
+$clave_donations_html5_donation_other = '';
 
 /*
 * 7. IMPROVING THE 'IN HONOR OF' AND 'IN MEMORY OF' SECTIONS
@@ -211,13 +211,13 @@ $clave_html5_donation_other = '';
 */
 
 // Add a true header to the "in honor of" section
-$clave_honorof_header = true;
+$clave_donations_honorof_header = false;
 
 // Add a true header to the "in memory of" section
-$clave_memoryof_header = true;
+$clave_donations_memoryof_header = false;
 
 // Make this section collapsible
-$clave_honorof_collapsible = true;
+$clave_donations_honorof_collapsible = false;
 
 
 
@@ -236,7 +236,7 @@ $(document).ready(function() {
 * 1. REMOVING 'REQUIRED' NOTATION
 */
 
-if($clave_remove_required) {
+if($clave_donations_remove_required) {
   $('.donation .required').remove();
 }
 
@@ -244,7 +244,7 @@ if($clave_remove_required) {
 * 2. PLACING DONATION AMOUNTS AT THE BEGINNING
 */
 
-if($clave_prepend_donations) {
+if($clave_donations_prepend_amounts) {
   $('.donation #right_container').insertBefore($('.donation #left_container'));
 }
 
@@ -252,7 +252,7 @@ if($clave_prepend_donations) {
 * 3. PLACING TERMS OF SERVICE NOTICE AT THE END
 */
 
-if($clave_append_tos) {
+if($clave_donations_append_tos) {
   $('.donation #de_compliance').insertAfter($('#submit'));
 }
 
@@ -260,7 +260,7 @@ if($clave_append_tos) {
 * 4. ADD SEMANTIC CLASSES TO DONATION AMOUNTS
 */
 
-if($clave_semantic_classes_donations) {
+if($clave_donations_semantic_classes) {
   $('.donation #donation_amount > .formRow input[type="radio"]').each(function(){
     var donateamt_value = $(this).attr("value");
     var donateamt = $.trim(donateamt_value);
@@ -275,19 +275,19 @@ if($clave_semantic_classes_donations) {
 * 5. PRE-SELECTING A DONATION AMOUNT
 */
 
-if($clave_donation_preselect) {
-  $('.donation_amount--' + $clave_donation_preselect + ' input').attr('checked','checked');
+if($clave_donations_preselect_amount) {
+  $('.donation_amount--' + $clave_donations_preselect_amount + ' input').attr('checked','checked');
 }
 
 /*
 * 6. SET HTML5 INPUT FIELD TYPES
 */
 
-if($clave_html5_email) {
+if($clave_donations_html5_email) {
   $('.donation .email input').get(0).type = 'email';
 }
 
-if($clave_html5_phone) {
+if($clave_donations_html5_phone) {
   $('.donation .phone input').get(0).type = 'tel';
 }
 
@@ -295,7 +295,7 @@ if($clave_html5_phone) {
 * 6b. Zip code field
 */
 
-if($clave_html5_zip) {
+if($clave_donations_html5_zip) {
   $('.donation .zip input').get(0).type = 'number';
   $('.donation .zip input').attr('pattern','[0-9]*');
 }
@@ -304,12 +304,12 @@ if($clave_html5_zip) {
 * 6c. Credit card fields
 */
 
-if($clave_html5_cc == 'safe') {
+if($clave_donations_html5_cc == 'safe') {
   $('.donation input#cc_number').attr('pattern','[0-9]*');
   $('.donation .cvv2 input').attr('pattern','[0-9]*');
 }
 
-if($clave_html5_cc == 'edge') {
+if($clave_donations_html5_cc == 'edge') {
   $('.donation input#cc_number').get(0).type = 'number';
   $('.donation .cvv2 input').get(0).type = 'number';
 }
@@ -318,11 +318,11 @@ if($clave_html5_cc == 'edge') {
 * 6d. 'Other' donation amount
 */
 
-if($clave_html5_donation_other == 'safe') {
+if($clave_donations_html5_donation_other == 'safe') {
   $('.donation input#otheramt').attr('pattern','[0-9]*');
 }
 
-if($clave_html5_donation_other == 'edge') {
+if($clave_donations_html5_donation_other == 'edge') {
   $('.donation input#otheramt').get(0).type = 'number';
 }
 
@@ -330,17 +330,17 @@ if($clave_html5_donation_other == 'edge') {
 * 7. IMPROVING THE 'IN HONOR OF' AND 'IN MEMORY OF' SECTIONS
 */
 
-if($clave_honorof_header) {
+if($clave_donations_honorof_header) {
   // Add a true header to the "in honor of" section
   $('.donation #honorof p:contains("in honor of")').replaceWith('<h4 class="honorof__header">In honor of...</h4>');
 }
 
-if($clave_memoryof_header) {
+if($clave_donations_memoryof_header) {
   // Add a true header to the "in memory of" section
   $('.donation #honorof p:contains("in memory of")').replaceWith('<h4 class="honorof__header">In memory of...</h4>');
 }
 
-if($clave_honorof_collapsible) {
+if($clave_donations_honorof_collapsible) {
   // Grab all of the .formRows
   var divs = $('.donation #honorof .formRow');
   // Wrap each set in a semantic section div

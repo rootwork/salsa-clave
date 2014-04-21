@@ -1,3 +1,9 @@
+Salsa Clave 0.4
+----------------
+- Adding support for storefront pages, items, and checkout.
+- Improved selector peformance.
+- Namespaced variables to the Salsa Clave package.
+
 Salsa Clave 0.3
 ----------------
 - Adding support for donation pages.

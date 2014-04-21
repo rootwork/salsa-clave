@@ -32,7 +32,7 @@ Perhaps most importantly, because Salsa Clave allows you to rewrite the wording
 on the forms, you'll want to determine what wording works for you, and set that 
 in the code.
 
-## Features (version 0.3)
+## Features (version 0.4)
 
 Salsa Clave is modular. The features listed below are optional, and are turned 
 off by default -- you only use and enable the features you need.
@@ -45,7 +45,7 @@ reading
 * **clave-advocacy.js (pending)**, for use with petitions and targeted actions
 * **clave-donations.js**, for use with the donations package
 * **clave-profiles.js (pending)**, for use with the profile manager and unsubscribe form
-* **clave-storefronts.js (pending)**, for use with the storefronts package
+* **clave-storefronts.js**, for use with the storefronts package
 
 Currently there is not a script file for the events or chapter Salsa packages. 
 The email package has no frontend display (outside of email) and therefore has 
@@ -56,7 +56,8 @@ no script file.
 Salsa Clave assigns semantic class names to all fields, allowing you to target 
 them specifically.
 
-Want to highlight the zip code field on a signup page, the "personal message" field on an action page, or the preferred donation amount field on your 
+Want to highlight the zip code field on a signup page, the "personal message" 
+field on an action page, or the preferred donation amount field on your 
 donation form? By default, many of these fields have no class name, and are 
 contained in identically-named &lt;div&gt; elements with the class name 
 "formRow".
@@ -118,7 +119,16 @@ as "email lists to which I'm subscribed."
 
 ### Storefronts (pending)
 
-* Clean up the checkout page.
+* Add semantic classes to storefront items and their elements to make it easier 
+to style their display.
+
+* Automatically set the page &lt;title&gt; element to match the contents of the 
+first &lt;h1&gt; element, if one exists.
+
+* Link item titles and images to the detail/purchase page.
+
+* Convert storefront checkout &lt;table&gt; elements to classed &lt;div&gt;s 
+that won't break layouts or flow off-screen at narrow widths.
 
 ## Caveats
 

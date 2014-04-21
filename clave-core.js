@@ -1,5 +1,5 @@
 /*!
-* Salsa Clave 0.3
+* Salsa Clave 0.4
 * https://github.com/rootwork/salsa-clave
 *
 * Copyright (C) 2014  Ivan Boothe
@@ -44,9 +44,12 @@
 * other components of Salsa Clave depend on these semantic names. It's designed 
 * not to impact your existing display (all it does is add classes) and so it's 
 * recommended you leave this feature enabled.
+*
+* Also see:
+* $clave_donations_semantic_classes (clave-donations.js)
 */
 
-$clave_semantic_classes = true;
+$clave_core_semantic_classes = true;
 
 /*
 * 2. REMOVING FORCED CLEARING
@@ -59,7 +62,7 @@ $clave_semantic_classes = true;
 * Enable this setting to remove these forced clears.
 */
 
-$clave_remove_clears = false;
+$clave_core_remove_clears = true;
 
 /*
 * 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
@@ -93,7 +96,7 @@ $clave_remove_clears = false;
 * Enable this setting to relabel these fields based on the selected country.
 */
 
-$clave_countrified_labels = false;
+$clave_core_countrified_labels = true;
 
 /*
 * 3b. Pre-select a country
@@ -122,7 +125,7 @@ $clave_countrified_labels = false;
 * France, change the value to 'FR'.
 */
 
-$clave_country_default = '';
+$clave_core_country_default = 'US';
 
 
 
@@ -137,7 +140,7 @@ $clave_country_default = '';
 // Document ready
 $(document).ready(function() {
 
-// Setting up reuseable variables
+// Set up reuseable variables
 var states_us = '<option value="">Select a state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AS">American Samoa</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">D.C.</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="MP">Northern Mariana Islands</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VI">Virgin Islands</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (the) Americas</option><option value="AE">Armed Forces Europe</option><option value="AP">Armed Forces Pacific</option><option value="ot">Other</option>';
 var states_can = '<option value="">Select a province</option><option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NF">Newfoundland</option><option value="NB">New Brunswick</option><option value="NS">Nova Scotia</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="YT">Yukon Territory</option><option value="ot">Other</option>';
 
@@ -145,7 +148,7 @@ var states_can = '<option value="">Select a province</option><option value="AB">
 * 1. SEMANTIC CLASSES
 */
 
-if($clave_semantic_classes) {
+if($clave_core_semantic_classes) {
   $('.formRow input').each(function(){
     var inputname = $(this).attr("name");
     inputname = inputname.toLowerCase();
@@ -167,7 +170,7 @@ if($clave_semantic_classes) {
 * 2. REMOVING FORCED CLEARING
 */
 
-if($clave_remove_clears) {
+if($clave_core_remove_clears) {
   $('.salsa .clear').remove();
   $('.salsa .clearall').remove();
   $('.salsa br').remove();
@@ -181,7 +184,7 @@ if($clave_remove_clears) {
 * 3a. Country-specific labels for address fields
 */
 
-if($clave_countrified_labels) {
+if($clave_core_countrified_labels) {
   var zip_label = $('.zip label');
   var state_wrap = $('.state');
   var state_label = $('.state label');
@@ -210,13 +213,13 @@ if($clave_countrified_labels) {
 */
 
 // Ensure the value is uppercase
-$clave_country_sel = $clave_country_default.toUpperCase();
+$clave_core_country_sel = $clave_core_country_default.toUpperCase();
 
 // Set the country
-$('.country select option[value="' + $clave_country_sel + '"]').attr('selected','selected');
+$('.country select option[value="' + $clave_core_country_sel + '"]').attr('selected','selected');
 
 // United States-specific settings
-if($clave_country_sel == 'US') {
+if($clave_core_country_sel == 'US') {
   $('.zip label').text('Zip code');
   $('.state label').text('State');
   $('.state select').html(states_us);
@@ -224,7 +227,7 @@ if($clave_country_sel == 'US') {
 }
 
 // Canada-specific settings
-if($clave_country_sel == 'CA') {
+if($clave_core_country_sel == 'CA') {
   $('.zip label').text('Postal code');
   $('.state label').text('Province');
   $('.state select').html(states_can);
