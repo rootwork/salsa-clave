@@ -217,7 +217,7 @@ $clave_honorof_header = false;
 $clave_memoryof_header = false;
 
 // Make this section collapsible
-$clave_honorof_collapsible = false;
+$clave_honorof_collapsible = true;
 
 
 
@@ -354,11 +354,9 @@ if($clave_honorof_collapsible) {
   // Grab the default attributes of links and set them on the header
   $(function(){
     var linkColor = $('a:link').css('color');
-    $(header_sel).css('color', linkColor);
     var linkCursor = $('a:link').css('cursor');
-    $(header_sel).css('cursor', linkCursor);
     var linkLine = $('a:link').css('text-decoration');
-    $(header_sel).css('text-decoration', linkLine);
+    $(header_sel).css('color', linkColor).css('cursor', linkCursor).css('text-decoration', linkLine);
   });
   // Accordionize the headers
   $(header_sel).click(function () {
