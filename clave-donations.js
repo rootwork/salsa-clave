@@ -211,13 +211,13 @@ $clave_html5_donation_other = '';
 */
 
 // Add a true header to the "in honor of" section
-$clave_honorof_header = false;
+$clave_honorof_header = true;
 
 // Add a true header to the "in memory of" section
-$clave_memoryof_header = false;
+$clave_memoryof_header = true;
 
 // Make this section collapsible
-$clave_honorof_collapsible = false;
+$clave_honorof_collapsible = true;
 
 
 
@@ -350,16 +350,16 @@ if($clave_honorof_collapsible) {
   // Hide each section by default
   $('.donation .honorof__section').css('display','none');
   // Apply the following to both the default and rewritten headers
-  var header_sel = '.donation .honorof__header, .donation #honorof p:contains("in honor of"), .donation #honorof p:contains("in memory of")';
+  var header_sel = $('.donation .honorof__header, .donation #honorof p:contains("in honor of"), .donation #honorof p:contains("in memory of")');
   // Grab the default attributes of links and set them on the header
   $(function(){
     var linkColor = $('a:link').css('color');
     var linkCursor = $('a:link').css('cursor');
     var linkLine = $('a:link').css('text-decoration');
-    $(header_sel).css('color', linkColor).css('cursor', linkCursor).css('text-decoration', linkLine);
+    header_sel.css('color', linkColor).css('cursor', linkCursor).css('text-decoration', linkLine);
   });
   // Accordionize the headers
-  $(header_sel).click(function () {
+  header_sel.click(function () {
     $header = $(this);
     // Get the next element
     $content = $header.next();
