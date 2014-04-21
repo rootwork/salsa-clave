@@ -217,7 +217,7 @@ $clave_honorof_header = false;
 $clave_memoryof_header = false;
 
 // Make this section collapsible
-$clave_honorof_collapsible = true;
+$clave_honorof_collapsible = false;
 
 
 
