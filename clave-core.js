@@ -65,7 +65,26 @@ $clave_core_semantic_classes = true;
 $clave_core_remove_clears = false;
 
 /*
-* 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
+* 3. IMPROVE ACCESSIBILITY OF FORM FIELDS
+*
+* Screen readers and other assistive technology can be helped to parse pages in 
+* Salsa in a number of ways. Adding the HTML5 attribute "required" and 
+* "aria-required='true'" will provide client-side hints that a field must be 
+* filled out. Additionally, when Salsa presents an error message, adding
+* "role='alert'" will explain to users with assistive technology why the form 
+* failed.
+*
+* Enable these three settings to improve accessibility across all forms.
+*/
+
+$clave_core_accessibility_html5_req = false;
+
+$clave_core_accessibility_aria_req = false;
+
+$clave_core_accessibility_role_alert = false;
+
+/*
+* 4. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
 *
 * In the first section, you can enable setting the country to alter the display 
 * of corresponding labels -- for instance choosing "United States" will result 
@@ -87,7 +106,7 @@ $clave_core_remove_clears = false;
 */
 
 /*
-* 3a. Country-specific labels for address fields
+* 4a. Country-specific labels for address fields
 *
 * Alter the display of state/province and zip/postal code fields to match the 
 * terminology of particular countries, and hide the useless state/province 
@@ -99,7 +118,7 @@ $clave_core_remove_clears = false;
 $clave_core_countrified_labels = false;
 
 /*
-* 3b. Pre-select a country
+* 4b. Pre-select a country
 *
 * Set a country to be automatically selected when the page loads. Visitors can 
 * still change the country if they need to.
@@ -177,11 +196,33 @@ if($clave_core_remove_clears) {
 }
 
 /*
-* 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
+* 3. IMPROVE ACCESSIBILITY OF FORM FIELDS
+*/
+
+if($clave_core_accessibility_html5_req) {
+  $('.salsa .required').parent().siblings('input, select, textarea').attr('required', 'true');
+}
+
+if($clave_core_accessibility_aria_req) {
+  $('.salsa .required').parent().siblings('input, select, textarea').attr('aria-required', 'true');
+}
+
+if($clave_core_accessibility_role_alert) {
+  // Because .error <div>s often exist outside of the .salsa container, we have 
+  // to provide a selector that will catch these. If any <div> elements exist 
+  // in your design with the same class, you may want to specifically exclude 
+  // them.
+  $('.salsa .error, .error').attr('role', 'alert');
+  // Exclude .error <div>s that are contained in .foo containers below.
+  // $('.foo .error').removeAttr('role', 'alert');
+}
+
+/*
+* 4. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
 */
 
 /*
-* 3a. Country-specific labels for address fields
+* 4a. Country-specific labels for address fields
 */
 
 if($clave_core_countrified_labels) {
@@ -209,7 +250,7 @@ if($clave_core_countrified_labels) {
 }
 
 /*
-* 3b. Pre-select a country
+* 4b. Pre-select a country
 */
 
 // Ensure the value is uppercase

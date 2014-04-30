@@ -1,6 +1,8 @@
 Salsa Clave 0.5
 ----------------
 - Added support for profile manager pages and unsubscribe pages.
+- Added the ability to add accessibility attributes to required form fields and 
+  error messages.
 
 Salsa Clave 0.4
 ----------------

@@ -70,6 +70,10 @@ Additional features in core you can enable:
 
 * Remove forced clearing (empty &lt;div&gt; elements and &lt;br&gt; tags).
 
+* Add accessibility attributes to required form fields and error messages 
+(specifically, the HTML5 "required" attribute and the "aria-required" 
+attribute on required fields, and the WAI-ARIA role "alert" on error messages).
+
 * Set a default country for all country fields.
 
 * Change corresponding address labels based on the country selected -- e.g. 
