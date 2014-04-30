@@ -251,3 +251,5 @@ if($clave_profiles_unsub_intro_3_div) {
     $(this).replaceWith( '<div class="header">' + $(this).html() + '</div>' );
   });
 }
+
+}); // End of document ready
