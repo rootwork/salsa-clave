@@ -32,7 +32,7 @@ Perhaps most importantly, because Salsa Clave allows you to rewrite the wording
 on the forms, you'll want to determine what wording works for you, and set that 
 in the code.
 
-## Features (version 0.4)
+## Features (version 0.5)
 
 Salsa Clave is modular. The features listed below are optional, and are turned 
 off by default -- you only use and enable the features you need.
@@ -44,7 +44,7 @@ Currently, this includes:
 reading
 * **clave-advocacy.js (pending)**, for use with petitions and targeted actions
 * **clave-donations.js**, for use with the donations package
-* **clave-profiles.js (pending)**, for use with the profile manager and unsubscribe form
+* **clave-profiles.js**, for use with the profile manager and unsubscribe pages
 * **clave-storefronts.js**, for use with the storefronts package
 
 Currently there is not a script file for the events or chapter Salsa packages. 
@@ -103,7 +103,7 @@ way.
 * Alter the list of petition signatures from a table into &lt;div&gt; elements 
 that can be floated or positioned (for instance, responsively).
 
-### Profile manager (pending)
+### Profile manager
 
 * Customize the hard-coded welcome text that greets supporters when they load 
 the "profile manager" page (often encountered when clicking "update your 
@@ -121,6 +121,9 @@ as "email lists to which I'm subscribed."
 
 * Add semantic classes to storefront items and their elements to make it easier 
 to style their display.
+
+* Add classes to storefront pages, item details and checkout pages, which 
+otherwise can't be targeted.
 
 * Automatically set the page &lt;title&gt; element to match the contents of the 
 first &lt;h1&gt; element, if one exists.

@@ -1,5 +1,5 @@
 /*!
-* Salsa Clave 0.4
+* Salsa Clave 0.5
 * https://github.com/rootwork/salsa-clave
 *
 * Copyright (C) 2014  Ivan Boothe
@@ -62,7 +62,7 @@ $clave_core_semantic_classes = true;
 * Enable this setting to remove these forced clears.
 */
 
-$clave_core_remove_clears = true;
+$clave_core_remove_clears = false;
 
 /*
 * 3. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
@@ -96,7 +96,7 @@ $clave_core_remove_clears = true;
 * Enable this setting to relabel these fields based on the selected country.
 */
 
-$clave_core_countrified_labels = true;
+$clave_core_countrified_labels = false;
 
 /*
 * 3b. Pre-select a country
@@ -125,7 +125,7 @@ $clave_core_countrified_labels = true;
 * France, change the value to 'FR'.
 */
 
-$clave_core_country_default = 'US';
+$clave_core_country_default = '';
 
 
 

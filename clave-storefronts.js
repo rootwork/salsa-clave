@@ -1,6 +1,6 @@
 /*
 * CLAVE STOREFRONTS
-* Salsa Clave 0.4
+* Salsa Clave 0.5
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to Salsa storefront pages, items and checkout forms.
@@ -23,6 +23,21 @@
 *
 * Remember, this file must be used in conjunction with clave-core.js in order 
 * to properly function.
+*/
+
+/*
+* 0. HELPER CLASSES
+*
+* Salsa doesn't provide any way for us to target storefront pages in 
+* particular, so this script adds three helper classes to the main content 
+* <div> (which already has a .salsa class and #salsa id):
+*
+* .storefront, to primary storefront (catalog) pages
+* .storefront--item, to individual item (detail) pages
+* .storefront--checkout, to the checkout page
+*
+* These are required for the rest of the script's functionality and enabled 
+* automatically. You may find them helpful in your own CSS styling.
 */
 
 /*
@@ -89,7 +104,7 @@ $clave_storefronts_title_append = '';
 * Enable this setting to add the above classes to storefront items.
 */
 
-$clave_storefronts_semantic_classes = true;
+$clave_storefronts_semantic_classes = false;
 
 /*
 * 3. LINK ITEM TITLES AND IMAGES TO PURCHASE PAGE
@@ -123,7 +138,7 @@ $clave_storefronts_link_image = false;
 * elements.
 */
 
-$clave_storefronts_table_convert = true;
+$clave_storefronts_table_convert = false;
 
 
 
@@ -138,8 +153,10 @@ $clave_storefronts_table_convert = true;
 // Document ready
 $(document).ready(function() {
 
-// Attach a class to storefront pages, because Salsa doesn't give us any way to 
-// target them.
+/*
+* 0. HELPER CLASSES
+*/
+
 if ($('input[name=storefront_KEY]').length) {
   $('#salsa').addClass('storefront');
 }
@@ -150,7 +167,7 @@ if ($('#billingInformationHeader').length) {
   $('#salsa').addClass('storefront--checkout').removeClass('storefront--item');
 }
 
-// Set up reuseable variables
+// Set up reuseable selector variables based on the helper classes
 var storefront_item = $('.storefront > .items > .item');
 var storefront_item_detail = $('.storefront--item .product');
 
