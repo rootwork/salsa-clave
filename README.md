@@ -32,7 +32,7 @@ Perhaps most importantly, because Salsa Clave allows you to rewrite the wording
 on the forms, you'll want to determine what wording works for you, and set that 
 in the code.
 
-## Features (version 0.5)
+## Features (version 0.6)
 
 Salsa Clave is modular. The features listed below are optional, and are turned 
 off by default -- you only use and enable the features you need.
@@ -110,7 +110,7 @@ responsively).
 
 * [In development] Additional improvements to come.
 
-### Profile manager
+### Profile manager and unsubscribe pages
 
 * Customize the hard-coded text on your default unsubscribe page.
 
