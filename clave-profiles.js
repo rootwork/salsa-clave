@@ -162,35 +162,6 @@ $clave_profiles_unsub_intro_3 = '';
 // Wrap the unsubscribe page #3 intro in an <div>
 $clave_profiles_unsub_intro_3_div = false;
 
-/*
-* 4. UNSUBSCRIBE PAGE #3 FOOTER
-*
-* By default, the complete unsubscribe page (see "unsubscribe page basics" 
-* above) has no introductory text. You can insert custom text using the first 
-* setting below.
-*
-* Alternatively, you can create an unsubscribe page in Salsa's interface and 
-* include introductory text as a "header", which Salsa wraps in an <h4> 
-* element. Since this often looks strange with existing styles, you can use 
-* the second setting to wrap the header in a normal <p> tag instead.
-*/
-
-
-
-
-// * Customize the hard-coded welcome text that greets supporters when they load 
-// the "profile manager" page (often encountered when clicking "update your 
-// profile" in an email from Salsa). Salsa does not provide any other mechanism 
-// for changing this text.
-
-// * Remove tabs for packages you may not use (like local events) or want 
-// supporters to have access to (like all past donations and purchases).
-
-// * Clarify the meaning for your supporters of "Group Membership," which 
-// corresponds to Salsa's supporter groups and will almost always be interpreted 
-// as "email lists to which I'm subscribed."
-
-
 
 
 /* 

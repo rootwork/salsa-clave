@@ -42,7 +42,7 @@ Currently, this includes:
 
 * **clave-core.js** is required for any use, and is a good place to start 
 reading
-* **clave-advocacy.js (pending)**, for use with petitions and targeted actions
+* **clave-advocacy.js (in development)**, for use with petitions and targeted actions
 * **clave-donations.js**, for use with the donations package
 * **clave-profiles.js**, for use with the profile manager and unsubscribe pages
 * **clave-storefronts.js**, for use with the storefronts package
@@ -102,24 +102,32 @@ and optionally make them collapsible.
 * Place the terms of service agreement at the end of the form, out of the 
 way.
 
-### Advocacy (pending)
+### Advocacy
 
-* Alter the list of petition signatures from a table into &lt;div&gt; elements 
-that can be floated or positioned (for instance, responsively).
+* [In development] Alter the list of petition signatures from a table into 
+&lt;div&gt; elements that can be floated or positioned (for instance, 
+responsively).
+
+* [In development] Additional improvements to come.
 
 ### Profile manager
 
-* Customize the hard-coded welcome text that greets supporters when they load 
-the "profile manager" page (often encountered when clicking "update your 
-profile" in an email from Salsa). Salsa does not provide any other mechanism 
-for changing this text.
+* Customize the hard-coded text on your default unsubscribe page.
 
-* Remove tabs for packages you may not use (like local events) or want 
-supporters to have access to (like all past donations and purchases).
+* Add custom text to each stage of the unsubscribe process (often a four-page 
+process). Salsa does not provide any other mechanism for changing this text.
 
-* Clarify the meaning for your supporters of "Group Membership," which 
-corresponds to Salsa's supporter groups and will almost always be interpreted 
-as "email lists to which I'm subscribed."
+* [In development] Customize the hard-coded welcome text that greets 
+supporters when they load the "profile manager" page (often encountered when 
+clicking "update your profile" in an email from Salsa). Salsa does not provide 
+any other mechanism for changing this text.
+
+* [In development] Remove tabs for packages you may not use (like local events) 
+or want supporters to have access to (like all past donations and purchases).
+
+* [In development] Clarify the meaning for your supporters of "Group 
+Membership," which corresponds to Salsa's supporter groups and will almost 
+always be interpreted as "email lists to which I'm subscribed."
 
 ### Storefronts
 

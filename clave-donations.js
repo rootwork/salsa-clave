@@ -31,7 +31,10 @@
 * On a donation form, virtually everything is required, so these asterisks make 
 * the form look just a tiny bit more intimidating.
 *
-* Enable this setting to remove these required-field notations.
+* Note that this does not remove required indicators (the HTML5 attribute and 
+* the WAI-ARIA attribute) set in clave-core.js.
+*
+* Enable this setting to remove the visual required-field notations.
 */
 
 $clave_donations_remove_required = false;

@@ -49,7 +49,7 @@
 * $clave_donations_semantic_classes (clave-donations.js)
 */
 
-$clave_core_semantic_classes = true;
+$clave_core_semantic_classes = false;
 
 /*
 * 2. REMOVING FORCED CLEARING
