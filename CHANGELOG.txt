@@ -1,3 +1,8 @@
+Salsa Clave 0.6
+----------------
+- Added the ability for donation pages to grab a variable from the URL and
+  pre-fill a donation amount with that variable.
+
 Salsa Clave 0.5
 ----------------
 - Added support for unsubscribe pages.
