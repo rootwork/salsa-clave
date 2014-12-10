@@ -1,6 +1,6 @@
 /*
 * CLAVE PROFILES
-* Salsa Clave 0.5
+* Salsa Clave 0.6
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to the email unsubscribe forms and the Salsa profile

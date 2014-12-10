@@ -114,6 +114,49 @@ $clave_donations_semantic_classes = false;
 $clave_donations_preselect_amount = '';
 
 /*
+* 5b. Fill the "other" field from a URL variable
+*
+* Alternatively, you can use a variable in the URL to pre-fill the "other" field
+* with a value, optionally hiding the "other" label and move it above the other
+* amount options, or optionally hide the other amount options entirely.
+*
+* This can be used to great effect with Salsa's dynamic merge fields. For
+* instance, you can take a supporter's last donation of $50, increase the amount
+* by 10%, and suggest in an eblast that they donate $55. If you append that same
+* dynamic field to your donation page's URL with "&amt=" in the eblast, the link
+* for that supporter will take them to your donation page with that suggestion
+* pre-filled.
+*
+* For instance, if your donation page is:
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=7150
+* then view the eblast's source code and change the URL to:
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=7150&amt=
+* At the end, insert the dynamic merge field. (If you are using a custom URL
+* that doesn't end with the donation page key, use "?amt=" instead of "&amt=".)
+*
+* For more information about Salsa's dynamic merge fields, see:
+* https://help.salsalabs.com/entries/22535062-Dynamic-Content-and-Merge-Fields-for-Email-Blasts#3
+*
+* If the URL variable pre-fill is enabled and the URL has no variable with the
+* "amt" attribute, none of the following functions will be applied.
+*/
+
+// Enable "other" value pre-fill from URL
+$clave_donations_url_prefill = false;
+
+// Remove the word "Other" in the label
+$clave_donations_url_prefill_label_hide = false;
+
+// Move pre-filled "other" value above the other values
+$clave_donations_url_prefill_above = false;
+
+// Insert language above the other values like "Or, choose the following:"
+$clave_donations_url_prefill_suffix = '';
+
+// Remove the other values entirely
+$clave_donations_url_prefill_isolate = false;
+
+/*
 * 6. SET HTML5 INPUT FIELD TYPES
 *
 * For mobile visitors in particular, setting HTML5 types on your input fields
@@ -236,6 +279,15 @@ $clave_donations_honorof_collapsible = false;
 // Document ready
 $(document).ready(function() {
 
+// Grab variables from the URL
+function urlval(name) {
+  name = RegExp ('[?&]' + name.replace (/([[\]])/, '\\$1') + '=([^&#]*)');
+  return (window.location.href.match (name) || ['', ''])[1];
+}
+
+// Set pre-selected amount from URL
+var amtpreselect = urlval("amt");
+
 /*
 * 1. REMOVING 'REQUIRED' NOTATION
 */
@@ -281,6 +333,31 @@ if($clave_donations_semantic_classes) {
 
 if($clave_donations_preselect_amount) {
   $('.donation_amount--' + $clave_donations_preselect_amount + ' input').attr('checked','checked');
+}
+
+/*
+* 5b. Fill 'other' field with amount set in URL
+*/
+
+if($clave_donations_url_prefill && amtpreselect) {
+	$('.donation #otheramt').val(amtpreselect);
+
+	if($clave_donations_url_prefill_label_hide) {
+	  $('.donation .otherRow label').text("$");
+	}
+
+	if($clave_donations_url_prefill_above) {
+		$('.donation .otherRow').insertAfter($('#pre_donation_text'));
+	}
+
+	if($clave_donations_url_prefill_suffix) {
+	  $('.donation .otherRow').append('<p class="donation_amount_suffix--other">' + $clave_donations_url_prefill_suffix + '</p>');
+	}
+
+	if($clave_donations_url_prefill_isolate) {
+	  $('.donation .formRow.amount').hide();
+		$('.donation .formRow.otherRow').show();
+	}
 }
 
 /*
