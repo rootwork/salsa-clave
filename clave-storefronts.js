@@ -4,7 +4,7 @@
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to Salsa storefront pages, items and checkout forms.
-* 
+*
 * See README.md for complete installation instructions. This file must be used
 * with clave-core.js.
 */
@@ -14,54 +14,54 @@
 *
 * The features below are intentionally turned off by default.
 *
-* Each feature is heavily commented to explain its purpose, so you can choose 
+* Each feature is heavily commented to explain its purpose, so you can choose
 * whether or not to enable it.
-* 
-* To enable a feature, change its value to 'true'.
 *
-* To disable a feature that has been enabled, change its value to 'false'.
+* To enable a feature, change its value to "true".
 *
-* Remember, this file must be used in conjunction with clave-core.js in order 
+* To disable a feature that has been enabled, change its value to "false".
+*
+* Remember, this file must be used in conjunction with clave-core.js in order
 * to properly function.
 */
 
 /*
 * 0. HELPER CLASSES
 *
-* Salsa doesn't provide any way for us to target storefront pages in 
-* particular, so this script adds three helper classes to the main content 
+* Salsa doesn't provide any way for us to target storefront pages in
+* particular, so this script adds three helper classes to the main content
 * <div> (which already has a .salsa class and #salsa id):
 *
 * .storefront, to primary storefront (catalog) pages
 * .storefront--item, to individual item (detail) pages
 * .storefront--checkout, to the checkout page
 *
-* These are required for the rest of the script's functionality and enabled 
+* These are required for the rest of the script's functionality and enabled
 * automatically. You may find them helpful in your own CSS styling.
 */
 
 /*
 * 1. AUTOMATICALLY SET THE PAGE TITLE BASED ON HEADERS
 *
-* By default, all your pages will have the same page <title> (what appears in 
+* By default, all your pages will have the same page <title> (what appears in
 * the browser window and on bookmarks) as whatever template you are using.
 *
-* This setting allows you to grab the contents of the first <h1> tag in the 
-* content of the page and set that as the page title. If there is no <h1> tag 
+* This setting allows you to grab the contents of the first <h1> tag in the
+* content of the page and set that as the page title. If there is no <h1> tag
 * on the page, the page title will remain unchanged.
 *
-* Note that this is cosmetic only -- parsers such as feed readers, search 
-* indexes, and social media sites (e.g. Facebook) will never execute this 
-* script and therefore won't get the updated page title. For pages you expect 
-* to be shared a lot (like action pages), you should go the tedious route of 
-* creating a template just for that page, so you can set the page title and 
+* Note that this is cosmetic only -- parsers such as feed readers, search
+* indexes, and social media sites (e.g. Facebook) will never execute this
+* script and therefore won't get the updated page title. For pages you expect
+* to be shared a lot (like action pages), you should go the tedious route of
+* creating a template just for that page, so you can set the page title and
 * other metadata that can be correctly parsed.
 *
-* For this reason, this function is probably only useful on storefronts, where 
+* For this reason, this function is probably only useful on storefronts, where
 * you're not likely to create a template for every single item.
 *
-* Enable this setting to replace the page <title> element with the contents of 
-* the first <h1> tag. Optionally enable settings to preserve any text in the 
+* Enable this setting to replace the page <title> element with the contents of
+* the first <h1> tag. Optionally enable settings to preserve any text in the
 * <title> after a vertical pipe "|" or append custom text.
 */
 
@@ -71,15 +71,15 @@ $clave_storefronts_title = false;
 // Preserve text in the page <title> after the first vertical pipe "|"
 $clave_storefronts_title_preserve = false;
 
-// Append custom text to the contents of the first <h1> tag in the page <title> 
+// Append custom text to the contents of the first <h1> tag in the page <title>
 // (enter between the '' marks)
 $clave_storefronts_title_append = '';
 
 /*
 * 2. ADD SEMANTIC CLASSES TO STOREFRONT ITEMS
 *
-* By default, storefront items have ambiguous class names ("items", "item", 
-* "price", etc.) or no class name (in the case of the title and image), making 
+* By default, storefront items have ambiguous class names ("items", "item",
+* "price", etc.) or no class name (in the case of the title and image), making
 * them tedious to target with CSS.
 *
 * The classes added are:
@@ -109,10 +109,10 @@ $clave_storefronts_semantic_classes = false;
 /*
 * 3. LINK ITEM TITLES AND IMAGES TO PURCHASE PAGE
 *
-* By default, visitors have to click on "Show Details & Purchase" in order to 
+* By default, visitors have to click on "Show Details & Purchase" in order to
 * complete checkout.
 *
-* Enable these settings to link the title and/or image of each storefront item 
+* Enable these settings to link the title and/or image of each storefront item
 * to the detail and purchase page.
 */
 
@@ -123,18 +123,18 @@ $clave_storefronts_link_image = false;
 /*
 * 4. CONVERT CHECKOUT PAGE <TABLE> ELEMENTS TO <DIV>S
 *
-* The storefront checkout page includes several tables, which can break 
-* layouts, scroll off the page in mobile viewing, and make positioning 
+* The storefront checkout page includes several tables, which can break
+* layouts, scroll off the page in mobile viewing, and make positioning
 * challenging.
 *
-* This setting creates simple block-level <div>s and floats them to replicate 
-* tabular display. At desktop sizes, this will look similar to Salsa's default 
-* layout, but at narrow sizes, some of these <div>s will overlap. You'll want 
-* to set CSS media queries to stack (unfloat) them at narrow widths. This 
-* function is just meant to help you get 90% of the way there by handing you 
+* This setting creates simple block-level <div>s and floats them to replicate
+* tabular display. At desktop sizes, this will look similar to Salsa's default
+* layout, but at narrow sizes, some of these <div>s will overlap. You'll want
+* to set CSS media queries to stack (unfloat) them at narrow widths. This
+* function is just meant to help you get 90% of the way there by handing you
 * classed <div> elements instead of inflexible tables.
 *
-* Enable this setting to convert these tables to normal block-level <div> 
+* Enable this setting to convert these tables to normal block-level <div>
 * elements.
 */
 
@@ -142,9 +142,9 @@ $clave_storefronts_table_convert = false;
 
 
 
-/* 
+/*
 *  *************************************************************************
-*  End of user-configurable options. Do not modify anything below this line. 
+*  End of user-configurable options. Do not modify anything below this line.
 *  *************************************************************************
 */
 

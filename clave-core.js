@@ -20,43 +20,43 @@
 *
 * Most of the features in Salsa Clave are intentionally turned off by default.
 *
-* Each feature is heavily commented to explain its purpose, so you can choose 
+* Each feature is heavily commented to explain its purpose, so you can choose
 * whether or not to enable it.
-* 
-* To enable a feature, change its value to 'true'.
 *
-* To disable a feature that has been enabled, change its value to 'false'.
+* To enable a feature, change its value to "true".
+*
+* To disable a feature that has been enabled, change its value to "false".
 */
 
 /*
 * 1. SEMANTIC CLASSES
 *
-* This adds basic semantic classes to all form rows <div>s, which by default 
-* have only the class "formRow". The classes that are added are derived from 
-* the name of the input field, select object, textarea, or checkbox/radio 
+* This adds basic semantic classes to all form rows <div>s, which by default
+* have only the class "formRow". The classes that are added are derived from
+* the name of the input field, select object, textarea, or checkbox/radio
 * options contained by the <div>.
 *
-* For instance, the zip/postal code input field has the name attribute of 
-* "Zip", so the wrapper <div> will be assigned a class of "zip" in addition to 
+* For instance, the zip/postal code input field has the name attribute of
+* "Zip", so the wrapper <div> will be assigned a class of "zip" in addition to
 * "formRow".
 *
-* This is the only section that is enabled by default, because many of the 
-* other components of Salsa Clave depend on these semantic names. It's designed 
-* not to impact your existing display (all it does is add classes) and so it's 
+* This is the only section that is enabled by default, because many of the
+* other components of Salsa Clave depend on these semantic names. It's designed
+* not to impact your existing display (all it does is add classes) and so it's
 * recommended you leave this feature enabled.
 *
 * Also see:
 * $clave_donations_semantic_classes (clave-donations.js)
 */
 
-$clave_core_semantic_classes = false;
+$clave_core_semantic_classes = true;
 
 /*
 * 2. REMOVING FORCED CLEARING
 *
-* Salsa inserts a bunch of empty <div> fields with the class "clear" as well 
-* as numerous stray <br> tags. Since form field rows are block-level, clearing 
-* elements anyway, this is mostly an annoyance and can create unwanted space 
+* Salsa inserts a bunch of empty <div> fields with the class "clear" as well
+* as numerous stray <br> tags. Since form field rows are block-level, clearing
+* elements anyway, this is mostly an annoyance and can create unwanted space
 * in between or inside elements.
 *
 * Enable this setting to remove these forced clears.
@@ -67,11 +67,11 @@ $clave_core_remove_clears = false;
 /*
 * 3. IMPROVE ACCESSIBILITY OF FORM FIELDS
 *
-* Screen readers and other assistive technology can be helped to parse pages in 
-* Salsa in a number of ways. Adding the HTML5 attribute "required" and 
-* "aria-required='true'" will provide client-side hints that a field must be 
+* Screen readers and other assistive technology can be helped to parse pages in
+* Salsa in a number of ways. Adding the HTML5 attribute "required" and
+* "aria-required='true'" will provide client-side hints that a field must be
 * filled out. Additionally, when Salsa presents an error message, adding
-* "role='alert'" will explain to users with assistive technology why the form 
+* "role='alert'" will explain to users with assistive technology why the form
 * failed.
 *
 * Enable these three settings to improve accessibility across all forms.
@@ -86,30 +86,30 @@ $clave_core_accessibility_role_alert = false;
 /*
 * 4. ADDRESS FIELDS DESIGNED FOR YOUR COUNTRY
 *
-* In the first section, you can enable setting the country to alter the display 
-* of corresponding labels -- for instance choosing "United States" will result 
-* in fields labeled "State" and "Zip code" whereas choosing "Canada" will 
-* cause those same fields to be labeled "Province" and "Postal code" instead. 
-* Since Salsa doesn't support state/province values for any other country, when 
-* any other country is selected, that field is automatically set to "other" and 
+* In the first section, you can enable setting the country to alter the display
+* of corresponding labels -- for instance choosing "United States" will result
+* in fields labeled "State" and "Zip code" whereas choosing "Canada" will
+* cause those same fields to be labeled "Province" and "Postal code" instead.
+* Since Salsa doesn't support state/province values for any other country, when
+* any other country is selected, that field is automatically set to "other" and
 * hidden.
-* 
-* In the second section, you can set the default country to the United States 
-* or Canada, pre-selecting it for your visitors, while allowing them to choose 
+*
+* In the second section, you can set the default country to the United States
+* or Canada, pre-selecting it for your visitors, while allowing them to choose
 * other countries.
 *
-* Note that these will only engage if you have a country field present, which 
-* isn't enabled by default on some forms. (And be sure not to mistake the 
-* "Country" field with the "County" field.) You will probably want to place 
-* this field before the "State" and "Zip" fields for usability, since it will 
+* Note that these will only engage if you have a country field present, which
+* isn't enabled by default on some forms. (And be sure not to mistake the
+* "Country" field with the "County" field.) You will probably want to place
+* this field before the "State" and "Zip" fields for usability, since it will
 * alter those field labels.
 */
 
 /*
 * 4a. Country-specific labels for address fields
 *
-* Alter the display of state/province and zip/postal code fields to match the 
-* terminology of particular countries, and hide the useless state/province 
+* Alter the display of state/province and zip/postal code fields to match the
+* terminology of particular countries, and hide the useless state/province
 * field for any countries other than the United States and Canada.
 *
 * Enable this setting to relabel these fields based on the selected country.
@@ -120,27 +120,27 @@ $clave_core_countrified_labels = false;
 /*
 * 4b. Pre-select a country
 *
-* Set a country to be automatically selected when the page loads. Visitors can 
+* Set a country to be automatically selected when the page loads. Visitors can
 * still change the country if they need to.
 *
-* If the United States is selected, the labels "State" and "Zip code" will 
-* replace the default "State/Province" and "Zip/Postal Code". Canada will also  
-* be placed underneath the United States, with other countries following 
+* If the United States is selected, the labels "State" and "Zip code" will
+* replace the default "State/Province" and "Zip/Postal Code". Canada will also
+* be placed underneath the United States, with other countries following
 * alphabetically.
 *
-* If Canada is selected, the labels "Province" and "Postal code" will replace 
+* If Canada is selected, the labels "Province" and "Postal code" will replace
 * the defaults. Canada will also be placed at the top of the list, with the
 * United States and then other countries following alphabetically.
 *
-* If any other country is selected, the label "Postal code" will replace the 
-* default, and the "State/Province" field will be set to "other" and hidden. 
-* Salsa does not support any state/province values for countries other than the 
+* If any other country is selected, the label "Postal code" will replace the
+* default, and the "State/Province" field will be set to "other" and hidden.
+* Salsa does not support any state/province values for countries other than the
 * United States and Canada, so there's no reason to confuse people.
 *
 * The default setting ('') leaves the selection form as it is.
 *
-* Enter the two-letter country code for the country you'd like to be selected. 
-* For instance, to select the United States, change the value to 'US'; for 
+* Enter the two-letter country code for the country you'd like to be selected.
+* For instance, to select the United States, change the value to 'US'; for
 * France, change the value to 'FR'.
 */
 
@@ -148,9 +148,9 @@ $clave_core_country_default = '';
 
 
 
-/* 
+/*
 *  *************************************************************************
-*  End of user-configurable options. Do not modify anything below this line. 
+*  End of user-configurable options. Do not modify anything below this line.
 *  *************************************************************************
 */
 
@@ -208,9 +208,9 @@ if($clave_core_accessibility_aria_req) {
 }
 
 if($clave_core_accessibility_role_alert) {
-  // Because .error <div>s often exist outside of the .salsa container, we have 
-  // to provide a selector that will catch these. If any <div> elements exist 
-  // in your design with the same class, you may want to specifically exclude 
+  // Because .error <div>s often exist outside of the .salsa container, we have
+  // to provide a selector that will catch these. If any <div> elements exist
+  // in your design with the same class, you may want to specifically exclude
   // them.
   $('.salsa .error, .error').attr('role', 'alert');
   // Exclude .error <div>s that are contained in .foo containers below.
