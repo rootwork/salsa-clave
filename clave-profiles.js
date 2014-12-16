@@ -44,11 +44,11 @@
 *    link, or if they're already logged in. This has your public lists that
 *    subscribers can opt in or out of.
 *
-* 4. The results page, which can be one of three:
+* 4. The result page, which can be one of three:
 *
 *    - a confirmation that a subscriber has been completely unsubscribed
 *    - a confirmation that a subscriber has been unsubscribed from one list
-*    - a confirmation that a subscriber has canceled their unsubscribe
+*    - a confirmation that a subscriber has canceled the unsubscribe process
 *
 * There are settings for each of these pages below.
 */
@@ -101,6 +101,12 @@
 *
 * - It adds a second class of .unsubscribe to that <div> so you can target
 *   styles specifically to the unsubscribe pages.
+*
+* - It adds a third class to the three result pages (see #4 in "unsubscribe page
+*   basics", above) with one of the following values:
+*     .unsubscribe--complete
+*     .unsubscribe--partial
+*     .unsubscribe--cancel
 *
 * This is required for the rest of the script's functionality and enabled
 * automatically.
@@ -165,6 +171,44 @@ $clave_profiles_unsub_intro_3 = '';
 // Wrap the unsubscribe page #3 intro in an <div>
 $clave_profiles_unsub_intro_3_div = false;
 
+/*
+* 4a. CUSTOMIZE COMPLETELY UNSUBSCRIBED PAGE
+*
+* If a visitor is completely unsubscribed from all lists (see #4 in
+* "unsubscribe page basics", above), they are shown a page with the notice "You
+* were successfully removed from all future emails." styled like an error
+* message.
+*
+* Replace the error-style <div> with new content. HTML will be interpreted.
+*/
+
+$clave_profiles_unsub_complete_content = '';
+
+/*
+* 4b. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
+*
+* If a visitor chooses only some lists from which to be unsubscribed (see #4 in
+* "unsubscribe page basics", above), they are shown a page with the notice "You
+* were successfully removed from the specified lists." styled like an error
+* message.
+*
+* Replace the error-style <div> with new content. HTML will be interpreted.
+*/
+
+$clave_profiles_unsub_partial_content = '';
+
+/*
+* 4c. CUSTOMIZE UNSUBSCRIBE CANCEL PAGE
+*
+* If a visitor cancels the unsubscribe process (see #4 in "unsubscribe page
+* basics", above), they are shown a page with the words "Your subscription
+* preferences are unchanged" in an unstyled <div>.
+*
+* Customize the content of this page, which will be wrapped in a <div> with a
+* class of "unsubscribe--cancel". HTML will be interpreted.
+*/
+
+$clave_profiles_unsub_cancel_content = '';
 
 
 /*
@@ -184,6 +228,21 @@ $(document).ready(function() {
 
 if ($('#salsa-unsubscribe-form').length) {
   $('body').wrapInner('<div class="salsa unsubscribe" id="salsa" />');
+}
+
+// If visitor is completely unsubscribed
+if ($('div:contains("You were successfully removed from all future emails.")').length) {
+  $('body').wrapInner('<div class="salsa unsubscribe unsubscribe--complete" id="salsa" />');
+}
+
+// If visitor is partially unsubscribed
+if ($('div:contains("You were successfully removed from the specified lists.")').length) {
+  $('body').wrapInner('<div class="salsa unsubscribe unsubscribe--partial" id="salsa" />');
+}
+
+// If visitor cancels unsubscribe process
+if ($('div:contains("Your subscription preferences are unchanged.")').length) {
+  $('body').wrapInner('<div class="salsa unsubscribe unsubscribe--cancel" id="salsa" />');
 }
 
 /*
@@ -224,6 +283,30 @@ if($clave_profiles_unsub_intro_3_div) {
   $('.unsubscribe h4.header').each(function() {
     $(this).replaceWith( '<div class="header">' + $(this).html() + '</div>' );
   });
+}
+
+/*
+* 4a. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
+*/
+
+if($clave_profiles_unsub_complete_content.length) {
+  $('.unsubscribe--complete div:contains("You were successfully removed from all future emails.")').replaceWith($clave_profiles_unsub_complete_content);
+}
+
+/*
+* 4b. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
+*/
+
+if($clave_profiles_unsub_partial_content.length) {
+  $('.unsubscribe--partial div:contains("You were successfully removed from the specified lists.")').replaceWith($clave_profiles_unsub_partial_content);
+}
+
+/*
+* 4c. CUSTOMIZE UNSUBSCRIBE CANCEL PAGE
+*/
+
+if($clave_profiles_unsub_cancel_content.length) {
+  $('.unsubscribe--cancel div:contains("Your subscription preferences are unchanged.")').replaceWith($clave_profiles_unsub_cancel_content);
 }
 
 }); // End of document ready
