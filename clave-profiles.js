@@ -140,20 +140,23 @@ $clave_profiles_unsub_header = false;
 $clave_profiles_unsub_intro_1 = ''
 
 /*
-* 3. UNSUBSCRIBE PAGE #3 INTRO
+* 3. CUSTOM INTRO FOR PAGES #1, 2 AND 3
 *
-* By default, the complete unsubscribe page (see "unsubscribe page basics",
-* above) has no introductory text. You can insert custom text using the first
-* setting below. This will be wrapped in a <div> element with the class
+* By default, the complete unsubscribe page (see #3 in "unsubscribe page
+* basics", above) has no introductory text. You can insert custom text using the
+* first setting below. This will be wrapped in a <div> element with the class
 * "header". You may use HTML in this text; if you do so you should be sure to
 * set the second setting below to "true".
+*
+* This text will be prepended to the introductory text on the first unsubscribe
+* page (Salsa Clave option 2 above).
 *
 * You can also create an unsubscribe page in Salsa's interface and include
 * introductory text as a "header", which Salsa wraps in an <h4> element. Since
 * this often looks strange with existing styles, you can use the second setting
 * to wrap the header in a <div> element instead. If you are setting a custom
-* intro with HTML in the first option, you should definitely set this to "true"
-* to avoid it being wrapped in an <h4>.
+* intro with HTML in Salsa Clave option 2 above, you should definitely set this
+* to "true" to avoid it being wrapped in an <h4>.
 */
 
 // Set custom unsubscribe page #3 intro (HTML will be interpreted)
