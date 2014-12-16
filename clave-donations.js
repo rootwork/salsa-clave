@@ -128,17 +128,17 @@ $clave_donations_preselect_amount = '';
 * pre-filled.
 *
 * For instance, if your donation page is:
-* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=7150
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210
 * then view the eblast's source code and change the URL to:
-* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=7150&amt=
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210&amt=
 * At the end, insert the dynamic merge field. (If you are using a custom URL
 * that doesn't end with the donation page key, use "?amt=" instead of "&amt=".)
 *
 * For more information about Salsa's dynamic merge fields, see:
 * https://help.salsalabs.com/entries/22535062-Dynamic-Content-and-Merge-Fields-for-Email-Blasts#3
 *
-* If the URL variable pre-fill is enabled and the URL has no variable with the
-* "amt" attribute, none of the following functions will be applied.
+* Note: If the URL variable pre-fill is enabled and the URL has no variable with
+* the "amt" attribute, _none_ of the following functions will be applied.
 */
 
 // Enable "other" value pre-fill from URL
