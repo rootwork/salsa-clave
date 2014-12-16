@@ -270,7 +270,7 @@ if($clave_profiles_unsub_intro_1.length) {
 }
 
 /*
-* 3. UNSUBSCRIBE PAGE #3 INTRO
+* 3. CUSTOM INTRO FOR PAGES #1, 2 AND 3
 */
 
 // Set custom introductory text
