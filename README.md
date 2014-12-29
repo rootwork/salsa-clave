@@ -213,14 +213,17 @@ and the appropriate feature file in each kind of template (e.g.
 disable features specific to one section, or if you upgrade to a new version of
 Salsa Clave, you'll only have to re-upload the file for that one section.
 However, more included files means more return trips for a visitor's web
-browser, which can slow down their experience.
+browser, which can slow down their experience. If you plan to use different
+settings for the same types of pages, however (e.g. different settings
+for different donation pages), you'll have to keep the files separate.
 
     * Combining all Salsa Clave files into one file will mean when you turn on or
 off individual features or upgrade to a new version of Salsa Clave you will have
 to re-compress the entire set of files. However, because it will be the same
 single file on all of your Salsa pages, it will get cached in browsers and won't
 require additional file downloads, thus speeding up the experience for your
-visitors. This is the recommended option.
+visitors. That said, all of your pages of the same type (e.g. all donation
+pages) will have to use the same settings.
 
     * In either case, I highly recommend you keep a local copy of your customized
 Salsa Clave so you don't have to start customizing from scratch in the future.
@@ -233,10 +236,10 @@ comments that would increase file size. It will also optionally concatenate
 5. Open your local copy of **clave-core.js**. Copy the full text of that file.
 In Closure Compiler, highlight all of the existing text in the text box on the
 left-hand side and delete it. Then, paste the contents of **clave-core.js** into
-this text box. If you are combining your Salsa Clave files into one file
-(recommended), repeat this process with each of the other Salsa Clave files
-ending in **.js** that you've customized. Be sure the code you copy from the
-other files comes after the code from **clave-core.js**.
+this text box. If you are combining multiple Salsa Clave files into one file,
+repeat this process with each of the other Salsa Clave files ending in **.js**
+that you've customized. Be sure the code you copy from the other files comes
+after the code from **clave-core.js**.
 
 6. The default settings for Closure Compiler are good, so simply click
 "Compile." On the right-hand side, it will display the compiled code. There will
