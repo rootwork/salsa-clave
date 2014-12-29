@@ -189,8 +189,10 @@ of the script to the filename, e.g. **clave-1.0.js**.
 
 ### Step-by-step instructions for beginners
 
-1. Download a zip file of the Salsa Clave package from GitHub so you can edit it
-locally. Unzip it into a folder.
+1. You'll want a local copy of Salsa Clave so you can customize it to fit your
+needs. Click on the "releases" tab at the top of this page. Next to the most
+recent release, click the "zip" icon to download the Salsa Clave package. Unzip
+it into a folder.
 
 2. Open the **clave-core.js** file and begin reading. (This file is required for
 any use of Salsa Clave.) The code is extensively commented, allowing you to
