@@ -14,8 +14,8 @@ and fewer actions. There's misleading or unnecessary text that's hardcoded
 into the form; there's HTML tags with no classes (and sometimes text with no
 HTML tags); there are buttons or important information in hard-to-find places.
 
-Salsa Clave is a small set of JavaScript files (primarily [jQuery](https://jquery.com)) that refines
-the Salsa forms' frontend.
+Salsa Clave is a small set of JavaScript files (primarily
+[jQuery](https://jquery.com)) that refines the Salsa forms' frontend.
 
 Its primary purpose is to allow you to reorder, reword and retheme pieces of
 the web forms Salsa outputs to suit your needs. Its method for most of this
@@ -187,6 +187,12 @@ effectively pull in git updates. Instead, when you upload your minified
 versions of the scripts, you should add the latest version number from the top
 of the script to the filename, e.g. **clave-1.0.js**.
 
+For testing purposes, you may want to use your web browser to download a copy of
+a rendered Salsa page (such as a donation page), add references to your local
+uncompressed copy of Salsa Clave, and edit the Clave files until you get the
+results you want. If you test "live" on the Salsa servers, you'll have to
+delete, re-compress, and re-upload Salsa Clave every time you make a change.
+
 ### Step-by-step instructions for beginners
 
 1. You'll want a local copy of Salsa Clave so you can customize it to fit your
@@ -214,8 +220,8 @@ disable features specific to one section, or if you upgrade to a new version of
 Salsa Clave, you'll only have to re-upload the file for that one section.
 However, more included files means more return trips for a visitor's web
 browser, which can slow down their experience. If you plan to use different
-settings for the same types of pages, however (e.g. different settings
-for different donation pages), you'll have to keep the files separate.
+settings for the same types of pages, though (e.g. different settings for
+different donation pages), you'll have to keep the files separate.
 
     * Combining all Salsa Clave files into one file will mean when you turn on or
 off individual features or upgrade to a new version of Salsa Clave you will have
