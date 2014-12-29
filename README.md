@@ -251,7 +251,7 @@ next step.
 
 8. On the right-hand side, click "Templates" and find the templates to which
 Salsa Clave should be added. Edit each template and insert the following code
-at the end of the file just before the &lt;/body&4t; tag:
+at the end of the file just before the &lt;/body&rt; tag:
 
     ```html
 <script src=""></script>
