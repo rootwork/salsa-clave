@@ -251,7 +251,7 @@ next step.
 
 8. On the right-hand side, click "Templates" and find the templates to which
 Salsa Clave should be added. Edit each template and insert the following code
-at the end of the file just before the &lt;/body&rt; tag:
+at the end of the file just before the &lt;/body&gt; tag:
 
     ```html
 <script src=""></script>
@@ -265,7 +265,7 @@ the files, ensuring the compressed **clave-core.js** file is first.
 
 If you find Salsa Clave isn't running, first look at the source of the Salsa
 page in question to ensure that the code calling the script exists at the bottom
-of the page just above the &lt;/body&rt; tag. It's easy to get your templates mixed
+of the page just above the &lt;/body&gt; tag. It's easy to get your templates mixed
 up!
 
 By default, Salsa includes a (very old) copy of jQuery in its pages. If you have
