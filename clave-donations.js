@@ -1,6 +1,6 @@
 /*
 * CLAVE DONATIONS
-* Salsa Clave 0.6
+* Salsa Clave 0.7
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to Salsa donation pages.
@@ -176,7 +176,7 @@ $clave_donations_html5_email = false;
 $clave_donations_html5_phone = false;
 
 /*
-* 6b. Zip code field
+* 6b. Zip code field: U.S.-only
 *
 * If you ONLY have transactions from U.S. addresses, setting this field will
 * speed those transactions. Non-U.S. addresses, however, have letters as well
@@ -266,6 +266,22 @@ $clave_donations_memoryof_header = false;
 // Make this section collapsible
 $clave_donations_honorof_collapsible = false;
 
+/*
+* 8. POSITION PRE-DONATION TEXT AFTER DONATION AMOUNTS
+*
+* Salsa gives you a field for text that appears at the top of the "donation
+* amounts" fieldset. This can be helpful as a way to introduce your amounts or
+* talk about the impact of each donation level.
+*
+* However, sometimes you don't want to give the text that much emphasis. For
+* instance you might want to have a note directly under the amounts saying "all
+* donations over $50 will receive a free t-shirt."
+*
+* Enable the setting below to move the "pre-donation text" from the beginning of
+* the donation amounts fieldset to the end of the donation amounts fieldset.
+*/
+
+$clave_donations_pre_post_donation_text = false;
 
 
 /*
@@ -325,6 +341,8 @@ if($clave_donations_semantic_classes) {
   });
   $('.donation #donation_amount .amountOther').addClass('donation_amount--other').removeClass('donation_amount--');
   $('.donation #donation_amount .amountOther label').addClass('donation_amount--other__label').removeClass('donation_amount--__label');
+  $('.donation #donation_amount .amountother').addClass('donation_amount--other').removeClass('donation_amount--');
+  $('.donation #donation_amount .amountother label').addClass('donation_amount--other__label').removeClass('donation_amount--__label');
 }
 
 /*
@@ -450,6 +468,14 @@ if($clave_donations_honorof_collapsible) {
     // Execute this after slideToggle is done
     });
   });
+}
+
+/*
+* 8. POSITION PRE-DONATION TEXT AFTER DONATION AMOUNTS
+*/
+
+if($clave_donations_pre_post_donation_text) {
+  $('#pre_donation_text').appendTo($('#donation_amount'));
 }
 
 }); // End of document ready

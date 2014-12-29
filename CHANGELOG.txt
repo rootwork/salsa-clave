@@ -1,3 +1,9 @@
+Salsa Clave 0.7
+----------------
+- Added additional options for customizing the unsubscribe pages.
+- Added the ability to move "pre-donation text" from directly before donation
+  amounts to directly after.
+
 Salsa Clave 0.6
 ----------------
 - Added the ability for donation pages to grab a variable from the URL and

@@ -14,7 +14,7 @@ and fewer actions. There's misleading or unnecessary text that's hardcoded
 into the form; there's HTML tags with no classes (and sometimes text with no
 HTML tags); there are buttons or important information in hard-to-find places.
 
-Salsa Clave is a small set of JavaScript files (primarily jQuery) that refines
+Salsa Clave is a small set of JavaScript files (primarily [jQuery](https://jquery.com)) that refines
 the Salsa forms' frontend.
 
 Its primary purpose is to allow you to reorder, reword and retheme pieces of
@@ -32,7 +32,7 @@ Perhaps most importantly, because Salsa Clave allows you to rewrite the wording
 on the forms, you'll want to determine what wording works for you, and set that
 in the code.
 
-## Features (version 0.6)
+## Features (version 0.7)
 
 Salsa Clave is modular. The features listed below are optional, and are turned
 off by default -- you only use and enable the features you need.
@@ -104,6 +104,9 @@ mobile users.
 * Improve the "in honor of" and "in memory of" sections with true headers,
 and optionally make them collapsible.
 
+* Place the "pre-donation text" directly after donation amounts, instead of
+directly before.
+
 * Place the terms of service agreement at the end of the form, out of the
 way.
 
@@ -172,25 +175,117 @@ you the tools to more easily apply your own.
 
 ## Installation
 
-Details TK
-
-1. selecting the files for the packages you use
-2. enabling the features you need
-3. optionally concatenating the files
-4. minifying the file(s)
-5. uploading the file(s) to Salsa
-6. updating your templates
+Salsa Clave is meant to be customized to your use. That means that its features
+are turned off by default, and heavily commented to explain how they work. So
+instead of simply grabbing the code and uploading it to your account, you'll
+want to enable the features you need, compress the files to strip out the
+comments, and then upload that customized and compressed file to your Salsa
+account.
 
 Unfortunately, because Salsa exists in a hosted environment, there's no way to
 effectively pull in git updates. Instead, when you upload your minified
 versions of the scripts, you should add the latest version number from the top
-of the script to the filename, e.g. **clave_1.0.js**.
+of the script to the filename, e.g. **clave-1.0.js**.
+
+### Step-by-step instructions for beginners
+
+1. Download a zip file of the Salsa Clave package from GitHub so you can edit it
+locally. Unzip it into a folder.
+
+2. Open the **clave-core.js** file and begin reading. (This file is required for
+any use of Salsa Clave.) The code is extensively commented, allowing you to
+easily turn on or off features by changing individual values. After you've made
+decisions about core Salsa Clave functionality, open each of the other files and
+decide which, if any, features you'd like to enable. If you don't use all of
+Salsa's features -- for instance, if you don't use the storefronts -- you can
+simply delete the corresponding Salsa Clave file.
+
+3. Once you've customized Salsa Clave to fit your needs, decide if you want to
+have one single Salsa Clave file with customizations for all your different
+Salsa pages (donation pages, advocacy pages, storefronts, users' profile
+manager, etc.) or if you want to keep them as separate files.
+
+    * Keeping Salsa Clave files separate will mean you only include the core file
+and the appropriate feature file in each kind of template (e.g.
+**clave-donations.js** on donation page templates). If you decide to enable or
+disable features specific to one section, or if you upgrade to a new version of
+Salsa Clave, you'll only have to re-upload the file for that one section.
+However, more included files means more return trips for a visitor's web
+browser, which can slow down their experience.
+
+    * Combining all Salsa Clave files into one file will mean when you turn on or
+off individual features or upgrade to a new version of Salsa Clave you will have
+to re-compress the entire set of files. However, because it will be the same
+single file on all of your Salsa pages, it will get cached in browsers and won't
+require additional file downloads, thus speeding up the experience for your
+visitors. This is the recommended option.
+
+    * In either case, I highly recommend you keep a local copy of your customized
+Salsa Clave so you don't have to start customizing from scratch in the future.
+
+4. Visit [Google's Closure Compiler](http://closure-compiler.appspot.com/home).
+This web application will compress Salsa Clave, stripping out all of the
+comments that would increase file size. It will also optionally concatenate
+(combine) the files into one single file.
+
+5. Open your local copy of **clave-core.js**. Copy the full text of that file.
+In Closure Compiler, highlight all of the existing text in the text box on the
+left-hand side and delete it. Then, paste the contents of **clave-core.js** into
+this text box. If you are combining your Salsa Clave files into one file
+(recommended), repeat this process with each of the other Salsa Clave files
+ending in **.js** that you've customized. Be sure the code you copy from the
+other files comes after the code from **clave-core.js**.
+
+6. The default settings for Closure Compiler are good, so simply click
+"Compile." On the right-hand side, it will display the compiled code. There will
+also be a note at the top saying that it can be accessed at **clave-core.js**.
+Click the link to that file and save the file to your computer. I recommend
+saving it with the version of Salsa Clave in the file name, such as
+**clave-1.0.js** or **clave-core-1.0.js**.
+
+7. Log in to Salsa and go to the "Website" section of the administration
+interface. On the right-hand side, click "Images and Files" and then upload
+your Salsa Clave file(s). Once uploaded, Salsa will tell you the address of
+the file(s) you have uploaded. Note the address(es) as you'll need them in the
+next step.
+
+8. On the right-hand side, click "Templates" and find the templates to which
+Salsa Clave should be added. Edit each template and insert the following code
+at the end of the file just before the </body> tag:
+
+    ```html
+<script src=""></script>
+```
+
+    Then, paste the address of the file from the previous step in between the
+quotes. If you created multiple Salsa Clave files, repeat this step for each of
+the files, ensuring the compressed **clave-core.js** file is first.
+
+### Troubleshooting
+
+If you find Salsa Clave isn't running, first look at the source of the Salsa
+page in question to ensure that the code calling the script exists at the bottom
+of the page just above the </body> tag. It's easy to get your templates mixed
+up!
+
+By default, Salsa includes a (very old) copy of jQuery in its pages. If you have
+a heavily-customized page, it's possible this isn't being loaded, or that
+multiple versions of jQuery are being loaded and causing conflicts. If you're
+not sure whether jQuery is being loaded on a given page, contact Salsa support.
+I've tested Salsa Clave extensively to ensure that it works with the old version
+of jQuery on Salsa, but if you believe particular functionality isn't working
+because the Salsa version of jQuery doesn't support it, please do
+[let me know](https://github.com/rootwork).
+
+Finally, try uploading a copy of your uncompressed Salsa Clave file to Salsa and
+including that. I haven't found the compression to break Salsa Clave, so if you
+do find this to be the case, please [contact me](https://github.com/rootwork).
 
 ## The name
 
 Most components related to Salsa are a play on salsa, the food (e.g.
 [Salsa recipes](http://www.salsalabs.com/devs/recipes/),
-[WordPress Jalepeno](http://www.wpjalapeno.com/)). I decided to relate it to
+[WordPress Jalapeno](https://wordpress.org/plugins/wp-jalapeno/)). I decided to relate it to
 salsa, the music.
 [According to Wikipedia](http://en.wikipedia.org/wiki/Salsa_music#Clave):
 
