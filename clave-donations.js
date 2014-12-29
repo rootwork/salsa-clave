@@ -358,24 +358,25 @@ if($clave_donations_preselect_amount) {
 */
 
 if($clave_donations_url_prefill && amtpreselect) {
-	$('.donation #otheramt').val(amtpreselect);
+  $('.donation .otherRow #otheramt').val(amtpreselect);
+  $('.donation .otherRow #other').attr('checked','checked');
 
-	if($clave_donations_url_prefill_label_hide) {
-	  $('.donation .otherRow label').text("$");
-	}
+  if($clave_donations_url_prefill_label_hide) {
+    $('.donation .otherRow label').text("$");
+  }
 
-	if($clave_donations_url_prefill_above) {
-		$('.donation .otherRow').insertAfter($('#pre_donation_text'));
-	}
+  if($clave_donations_url_prefill_above) {
+    $('.donation .otherRow').insertAfter($('#pre_donation_text'));
+  }
 
-	if($clave_donations_url_prefill_suffix) {
-	  $('.donation .otherRow').append('<p class="donation_amount_suffix--other">' + $clave_donations_url_prefill_suffix + '</p>');
-	}
+  if($clave_donations_url_prefill_suffix) {
+    $('.donation .otherRow').append('<p class="donation_amount_suffix--other">' + $clave_donations_url_prefill_suffix + '</p>');
+  }
 
-	if($clave_donations_url_prefill_isolate) {
-	  $('.donation .formRow.amount').hide();
-		$('.donation .formRow.otherRow').show();
-	}
+  if($clave_donations_url_prefill_isolate) {
+    $('.donation .formRow.amount').hide();
+    $('.donation .formRow.otherRow').show();
+  }
 }
 
 /*
