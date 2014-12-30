@@ -108,37 +108,77 @@ $clave_donations_semantic_classes = false;
 * The default setting ('') leaves the donation amounts as they are, with none
 * pre-selected.
 *
+* This only allows you to pre-select one donation amount per page. If you want
+* the ability to pre-select multiple donation amounts, see the pre-filling
+* feature in the next section.
+*
 * Enter the donation amount you wish to pre-select (e.g. '50' for $50.00).
 */
 
 $clave_donations_preselect_amount = '';
 
 /*
-* 5b. Fill the "other" field from a URL variable
+* 5b. Pre-fill the "other" donation amoutn field from a URL variable
 *
 * Alternatively, you can use a variable in the URL to pre-fill the "other" field
 * with a value, optionally hiding the "other" label and move it above the other
 * amount options, or optionally hide the other amount options entirely.
 *
-* This can be used to great effect with Salsa's dynamic merge fields. For
-* instance, you can take a supporter's last donation of $50, increase the amount
-* by 10%, and suggest in an eblast that they donate $55. If you append that same
-* dynamic field to your donation page's URL with "&amt=" in the eblast, the link
-* for that supporter will take them to your donation page with that suggestion
+* When this is enabled and the URL has a pre-fill amount, the class
+* "is-prefilled" will be added to the amount textfield to enable you to target
+* theming specific to when it's being used (for instance, to make it more
+* prominent).
+*
+* When this is enabled and the URL has no pre-filled amount, none of the
+* settings below will be applied. This is by design, so that you can enable
+* pre-filling on a donation form that might also get visitors from other
+* sources.
+*
+* If the URL for your donation page is:
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210
+* then you could add to the URL in the following way to automatically pre-fill
+* (and optionally put all focus on) a donation of $45:
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210&amt=45
+*
+* (If you are using a custom URL for your donation page that doesn't end with the
+* donation page key, use "?amt=" instead of "&amt=".)
+*
+* You can use this with incentive gifts in useful ways. For instance, if you
+* tell people gifts over $50 get a free doodad, and you have a picture of said
+* doodad in your email to supporters, you can link that picture directly to the
+* donation form with $50 pre-filled.
+*
+* This can also be used with Salsa's dynamic merge fields, although it takes a
+* little extra work. For instance, Salsa's donation history allows you can take
+* a supporter's last donation of $50, increase the amount by 10%, and suggest in
+* an email that they donate $55. If you were to append that same dynamic field
+* to your donation page's URL with "&amt=" in the email, the link for that
+* supporter will take them to your donation page with that suggestion
 * pre-filled.
+*
+* Unfortunately, Salsa's dynamic merge fields can't currently inject their
+* calculations into a URL field. Instead, you'll have to export your donations,
+* open them in Excel, create a new column for "suggested donation," run the
+* calculation in Excel, create a matching custom field for the suggested
+* donation in Salsa, then import the records. From there, you can use Salsa's
+* placeholders for custom fields to insert the value.
 *
 * For instance, if your donation page is:
 * https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210
-* then view the eblast's source code and change the URL to:
-* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210&amt=
-* At the end, insert the dynamic merge field. (If you are using a custom URL
-* that doesn't end with the donation page key, use "?amt=" instead of "&amt=".)
+* then view the email's source code and change the URL to:
+* https://org.salsalabs.com/o/123/p/salsa/donation/common/public/?donate_page_KEY=3210&amt=[[suggesteddonation]]
+*
+* Where "suggesteddonation" is the API name of your suggested donation field.
+*
+* If you are using a custom URL for your donation page that doesn't end with the
+* donation page key, use "?amt=" instead of "&amt=".
 *
 * For more information about Salsa's dynamic merge fields, see:
 * https://help.salsalabs.com/entries/22535062-Dynamic-Content-and-Merge-Fields-for-Email-Blasts#3
 *
-* Note: If the URL variable pre-fill is enabled and the URL has no variable with
-* the "amt" attribute, _none_ of the following functions will be applied.
+* Since this is a core feature of Salsa's donation and email integration, you
+* can and should look to Salsa's support for help with this process. And perhaps
+* joining me in pressuring them to support this feature natively!
 */
 
 // Enable "other" value pre-fill from URL
@@ -339,8 +379,6 @@ if($clave_donations_semantic_classes) {
     $(this).parent('.formRow').addClass('donation_amount--' + donateamt);
     $(this).siblings('label').addClass('donation_amount--' + donateamt + '__label');
   });
-  $('.donation #donation_amount .amountOther').addClass('donation_amount--other').removeClass('donation_amount--');
-  $('.donation #donation_amount .amountOther label').addClass('donation_amount--other__label').removeClass('donation_amount--__label');
   $('.donation #donation_amount .amountother').addClass('donation_amount--other').removeClass('donation_amount--');
   $('.donation #donation_amount .amountother label').addClass('donation_amount--other__label').removeClass('donation_amount--__label');
 }
@@ -358,7 +396,7 @@ if($clave_donations_preselect_amount) {
 */
 
 if($clave_donations_url_prefill && amtpreselect) {
-  $('.donation .otherRow #otheramt').val(amtpreselect);
+  $('.donation .otherRow #otheramt').val(amtpreselect).addClass('is-prefilled');
   $('.donation .otherRow #other').attr('checked','checked');
 
   if($clave_donations_url_prefill_label_hide) {
@@ -376,6 +414,7 @@ if($clave_donations_url_prefill && amtpreselect) {
   if($clave_donations_url_prefill_isolate) {
     $('.donation .formRow.amount').hide();
     $('.donation .formRow.otherRow').show();
+    $('.donation .otherRow #other').hide();
   }
 }
 

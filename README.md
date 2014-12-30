@@ -94,9 +94,11 @@ and style them specifically as necessary.
 * Pre-select a donation amount.
 
 * Pre-fill a donation amount based on a variable in a URL. This is particularly
-useful in combination with Salsa's [dynamic merge fields](https://help.salsalabs.com/entries/22535062-Dynamic-Content-and-Merge-Fields-for-Email-Blasts#3),
-allowing you to pre-fill a donation form based on a supporter's previous
-donation.
+useful for donation incentives (when you may have multiple tiers and want to
+link directly to pre-filled donations for them) or in combination with Salsa's
+[dynamic merge fields](https://help.salsalabs.com/entries/22535062-Dynamic-Content-and-Merge-Fields-for-Email-Blasts#3),
+potentially allowing you to pre-fill a donation form based on a supporter's
+previous donation.
 
 * Set HTML5 field types on numerical fields to trigger a number keypad for
 mobile users.
