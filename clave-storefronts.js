@@ -1,6 +1,6 @@
 /*
 * CLAVE STOREFRONTS
-* Salsa Clave 0.7
+* Salsa Clave 0.8
 * https://github.com/rootwork/salsa-clave
 *
 * Purpose: Modifications to Salsa storefront pages, items and checkout forms.

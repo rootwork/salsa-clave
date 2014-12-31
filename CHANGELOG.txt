@@ -1,3 +1,10 @@
+Salsa Clave 0.8
+----------------
+- Removed a feature from donation pages that enabled moving the "other" donation
+  field above the main donation values. Unfortunately, this introduced a
+  critical bug in which Salsa's own scripts would re-select another value when
+  the "other" field was edited.
+
 Salsa Clave 0.7
 ----------------
 - Added additional options for customizing the unsubscribe pages.
