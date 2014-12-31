@@ -187,9 +187,6 @@ $clave_donations_url_prefill = false;
 // Remove the word "Other" in the label
 $clave_donations_url_prefill_label_hide = false;
 
-// Move pre-filled "other" value above the other values
-$clave_donations_url_prefill_above = false;
-
 // Insert language above the other values like "Or, choose the following:"
 $clave_donations_url_prefill_suffix = '';
 
@@ -401,10 +398,6 @@ if($clave_donations_url_prefill && amtpreselect) {
 
   if($clave_donations_url_prefill_label_hide) {
     $('.donation .otherRow label').text("$");
-  }
-
-  if($clave_donations_url_prefill_above) {
-    $('.donation .otherRow').insertAfter($('#pre_donation_text'));
   }
 
   if($clave_donations_url_prefill_suffix) {
