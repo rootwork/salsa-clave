@@ -176,7 +176,7 @@ $clave_profiles_unsub_intro_3 = '';
 */
 
 // Wrap the unsubscribe page intro in a <div>
-$clave_profiles_unsub_intro_4_div = true;
+$clave_profiles_unsub_intro_4_div = false;
 
 /*
 * 5a. CUSTOMIZE COMPLETELY UNSUBSCRIBED PAGE
