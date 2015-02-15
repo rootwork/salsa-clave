@@ -58,7 +58,7 @@
 *
 * Salsa weirdly won't give you any options to access, change, or supply a
 * different template for your primary unsubscribe page -- the one you get if
-* you click "insert an unsubscribe link" in an email template creation form),
+* you click "insert an unsubscribe link" in an email template creation form --
 * it will simply use your default template.
 *
 * If you want to create a new unsubscribe page, you can do so in the "email"
@@ -133,46 +133,53 @@ $clave_profiles_unsub_title = '';
 $clave_profiles_unsub_header = false;
 
 /*
-* 2. UNSUBSCRIBE PAGE #1 INTRO
+* 2. REPLACE INTRODUCTORY TEXT ON UNSUBSCRIBE PAGE #1
 *
 * The default introduction to the first unsubscribe page (see "unsubscribe page
 * basics" above) is:
 *
 * "Please verify your e-mail address to unsubscribe:"
 *
-* Insert an optional custom introduction below.
+* Insert custom text to replace this default text on the first unsubscribe page
+* only.
 */
 
 $clave_profiles_unsub_intro_1 = ''
 
 /*
-* 3. CUSTOM INTRO FOR PAGES #1, 2 AND 3
+* 3. ADDITIONAL CUSTOM INTRO FOR PAGES #1, 2 AND 3
 *
 * By default, the complete unsubscribe page (see #3 in "unsubscribe page
 * basics", above) has no introductory text. You can insert custom text using the
-* first setting below. This will be wrapped in a <div> element with the class
-* "header". You may use HTML in this text; if you do so you should be sure to
-* set the second setting below to "true".
+* first setting below. This will appear on the first page above the introductory
+* text (either the default text or custom text set in Salsa Clave option 2
+* above) and above Salsa's "header" text (see Salsa Clave option 4 below), if
+* set, on the second and third unsubscribe pages.
 *
-* This text will be prepended to the introductory text on the first unsubscribe
-* page (Salsa Clave option 2 above).
+* This will be wrapped in a <div> element with the class "header". You may use
+* HTML in this text; if you do so you should be sure to set Salsa Clave option 4
+* below to "true".
+*/
+
+// Set custom unsubscribe page intro (HTML will be interpreted)
+$clave_profiles_unsub_intro_3 = '';
+
+/*
+* 4. REMOVE SALSA'S DEFAULT H4 TAG AROUND INTRODUCTORY TEXT
 *
-* You can also create an unsubscribe page in Salsa's interface and include
+* Within Salsa's interface, you can create a custom unsubscribe page and include
 * introductory text as a "header", which Salsa wraps in an <h4> element. Since
-* this often looks strange with existing styles, you can use the second setting
-* to wrap the header in a <div> element instead. If you are setting a custom
-* intro with HTML in Salsa Clave option 2 above, you should definitely set this
+* this often looks strange with existing styles, you can use this setting to
+* wrap the header in a <div> element instead. If you are setting custom text
+* intro with HTML in Salsa Clave option 3 above, you should definitely set this
 * to "true" to avoid it being wrapped in an <h4>.
 */
 
-// Set custom unsubscribe page #3 intro (HTML will be interpreted)
-$clave_profiles_unsub_intro_3 = '';
-
-// Wrap the unsubscribe page #3 intro in an <div>
-$clave_profiles_unsub_intro_3_div = false;
+// Wrap the unsubscribe page intro in a <div>
+$clave_profiles_unsub_intro_4_div = true;
 
 /*
-* 4a. CUSTOMIZE COMPLETELY UNSUBSCRIBED PAGE
+* 5a. CUSTOMIZE COMPLETELY UNSUBSCRIBED PAGE
 *
 * If a visitor is completely unsubscribed from all lists (see #4 in
 * "unsubscribe page basics", above), they are shown a page with the notice "You
@@ -185,7 +192,7 @@ $clave_profiles_unsub_intro_3_div = false;
 $clave_profiles_unsub_complete_content = '';
 
 /*
-* 4b. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
+* 5b. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
 *
 * If a visitor chooses only some lists from which to be unsubscribed (see #4 in
 * "unsubscribe page basics", above), they are shown a page with the notice "You
@@ -198,7 +205,7 @@ $clave_profiles_unsub_complete_content = '';
 $clave_profiles_unsub_partial_content = '';
 
 /*
-* 4c. CUSTOMIZE UNSUBSCRIBE CANCEL PAGE
+* 5c. CUSTOMIZE UNSUBSCRIBE CANCEL PAGE
 *
 * If a visitor cancels the unsubscribe process (see #4 in "unsubscribe page
 * basics", above), they are shown a page with the words "Your subscription
@@ -279,7 +286,7 @@ if($clave_profiles_unsub_intro_3.length) {
 }
 
 // Wrap the Salsa-provided introductory text in a <div> element
-if($clave_profiles_unsub_intro_3_div) {
+if($clave_profiles_unsub_intro_4_div) {
   $('.unsubscribe h4.header').each(function() {
     $(this).replaceWith( '<div class="header">' + $(this).html() + '</div>' );
   });
