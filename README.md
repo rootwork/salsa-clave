@@ -136,8 +136,8 @@ any other mechanism for changing this text.
 or want supporters to have access to (like all past donations and purchases).
 
 * [In development] Clarify the meaning for your supporters of "Group
-Membership," which corresponds to Salsa's supporter groups and will almost
-always be interpreted as "email lists to which I'm subscribed."
+Membership," which corresponds to Salsa's supporter groups and will often be
+interpreted as "email lists to which I'm subscribed."
 
 ### Storefronts
 
@@ -165,7 +165,7 @@ perform their functions. This will generally only be noticeable when it
 involves moving large parts of a form, and these situations are noted in the
 scripts.
 
-This effect can be mitigated to some extent by minifying your files (see
+This effect can be mitigated to some extent by compressing the files (see
 "Installation"). Additionally, for many users the larger form elements that are
 being acted on will be "below the fold" -- that is, off the screen below
 introductory text or images at the top of your form -- and will thus not be
@@ -323,7 +323,7 @@ working for peace, justice and nonviolence since 1915.
 
 ## License
 
-Copyright (C) 2014  Ivan Boothe
+Copyright (C) 2014-2015  Ivan Boothe
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
