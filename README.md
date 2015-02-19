@@ -127,10 +127,10 @@ responsively).
 * Add custom text to each stage of the unsubscribe process (often a four-page
 process). Salsa does not provide any other mechanism for changing this text.
 
-* [In development] Customize the hard-coded welcome text that greets
-supporters when they load the "profile manager" page (often encountered when
-clicking "update your profile" in an email from Salsa). Salsa does not provide
-any other mechanism for changing this text.
+* Customize the hard-coded welcome text that greets supporters when they load
+the "profile manager" page (often encountered when clicking "update your
+profile" in an email from Salsa). Salsa does not provide any other mechanism for
+changing this text.
 
 * [In development] Remove tabs for packages you may not use (like local events)
 or want supporters to have access to (like all past donations and purchases).

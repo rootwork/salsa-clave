@@ -24,6 +24,89 @@
 */
 
 /*
+* A HELPFUL NOTE ON APPLYING YOUR TEMPLATES TO UNSUBSCRIBE AND PROFILE PAGES
+*
+* Salsa weirdly won't give you any options to access, change, or supply a
+* different template for your primary unsubscribe page -- the one you get if
+* you click "insert an unsubscribe link" in an email template creation form --
+* it will simply use your default template. Similarly, the default link in
+* emails to "update your profile" will use your default template.
+*
+* If you want to create a new unsubscribe page, you can do so in the "email"
+* package, at the very bottom of the menu, "Create an Unsubscribe Page". You
+* can also list your unsubscribe pages, but note that the built-in default page
+* won't be among those listed.
+*
+* Alternatively, you can apply the template to your default form by adding its
+* ID to the URL. If your unsubscribe link looks something like:
+*
+* [Salsa URL]/o/[org ID]/p/salsa/supporter/unsubscribe/public/[email tags]
+*
+* insert the template key after the organization ID and a "/t/" like so:
+*
+* [Salsa URL]/o/[org ID]/t/[template key]/p/salsa/supporter/unsubscribe/public/[email tags]
+*
+* You can find the ID of a template by going to the templates page and
+* clicking edit (or inspecting the link); the key will be a number at the end
+* of the URL.
+*
+* So if you use the standard Salsa domain, your organization ID is 99999, and
+* your template key is 00000, the full URL for your email templates would be:
+*
+* https://org.salsalabs.com/o/99999/t/00000/p/salsa/supporter/unsubscribe/public/?Email=[[Email]]&email_blast_KEY=[[email_blast_KEY]]
+*
+* Similarly, if the default link to "update your profile" is:
+*
+* [Salsa URL]/o/[org ID]/profile/login.jsp
+*
+* then you'll want to change it to:
+*
+* [Salsa URL]/o/[org ID]/t/[template key]/profile/login.jsp
+*
+* Since the Salsa Clave settings for unsubscribe pages and profile pages are
+* separate values but both contained in this script, I find it easiest to simply
+* use the same template for both unsubscribe and profile pages.
+*
+* The final step for both unsubscribe pages and profile pages is to update your
+* email template with the correct links. Otherwise, supporters who click those
+* links will continue to be taken to your default pages without Salsa Clave
+* settings in place.
+*/
+
+/*
+* 0. HELPER CLASSES
+*
+* Salsa doesn't provide any way for us to target unsubscribe pages in
+* particular, so this script does two things:
+*
+* - It creates a wrapper <div> with the class of .salsa and the id of #salsa,
+*   an element that exists on every other Salsa page but not on these. This
+*   might help trigger some of your styles automatically.
+*
+* - It adds a second class of .unsubscribe to that <div> so you can target
+*   styles specifically to the unsubscribe pages.
+*
+* - It adds a third class to the three result pages (see #4 in "unsubscribe page
+*   basics", above) with one of the following values:
+*     .unsubscribe--complete
+*     .unsubscribe--partial
+*     .unsubscribe--cancel
+*
+* Additionally, we add a class of .profile to profile pages so you can target
+* them specifically, and the following classes which should be self-evident:
+*
+*   .profile-login-title
+*   .profile-login-intro
+*   .profile-login-remember
+*   .profile-login-wrap
+*   .profile-login-section
+*   .profile-login-form
+*
+* This is required for the rest of the script's functionality and enabled
+* automatically.
+*/
+
+/*
 * *****************
 * UNSUBSCRIBE PAGES
 * *****************
@@ -54,65 +137,6 @@
 */
 
 /*
-* A HELPFUL NOTE ON APPLYING YOUR TEMPLATE UNSUBSCRIBE PAGES
-*
-* Salsa weirdly won't give you any options to access, change, or supply a
-* different template for your primary unsubscribe page -- the one you get if
-* you click "insert an unsubscribe link" in an email template creation form --
-* it will simply use your default template.
-*
-* If you want to create a new unsubscribe page, you can do so in the "email"
-* package, at the very bottom of the menu, "Create an Unsubscribe Page". You
-* can also list your unsubscribe pages, but note that the built-in default page
-* won't be among those listed.
-*
-* Alternatively, you can apply the template to your default form by adding its
-* ID to the URL. If your unsubscribe link looks something like:
-*
-* [Salsa URL]/o/[org ID]/p/salsa/supporter/unsubscribe/public/[email tags]
-*
-* insert the template key after the organization ID and a "/t/" like so:
-*
-* [Salsa URL]/o/[org ID]/t/[template key]/p/salsa/supporter/unsubscribe/public/[email tags]
-*
-* You can find the ID of a template by going to the templates page and
-* clicking edit (or inspecting the link); the key will be a number at the end
-* of the URL.
-*
-* So if you use the standard Salsa domain, your organization ID is 99999, and
-* your template key is 00000, the full URL for your email templates would be:
-*
-* https://org.salsalabs.com/o/99999/t/00000/p/salsa/supporter/unsubscribe/public/?Email=[[Email]]&email_blast_KEY=[[email_blast_KEY]]
-*
-* Note that whether you choose to create a new template or alter the URL of the
-* default one, you'll need to update your email templates to point to the new
-* link, or no one will ever see it!
-*/
-
-/*
-* 0. HELPER CLASSES
-*
-* Salsa doesn't provide any way for us to target unsubscribe pages in
-* particular, so this script does two things:
-*
-* - It creates a wrapper <div> with the class of .salsa and the id of #salsa,
-*   an element that exists on every other Salsa page but not on these. This
-*   might help trigger some of your styles automatically.
-*
-* - It adds a second class of .unsubscribe to that <div> so you can target
-*   styles specifically to the unsubscribe pages.
-*
-* - It adds a third class to the three result pages (see #4 in "unsubscribe page
-*   basics", above) with one of the following values:
-*     .unsubscribe--complete
-*     .unsubscribe--partial
-*     .unsubscribe--cancel
-*
-* This is required for the rest of the script's functionality and enabled
-* automatically.
-*/
-
-/*
 * 1. UNSUBSCRIBE PAGE TITLE
 *
 * By default, the unsubscribe page has a title of "Unsubscribe". Insert an
@@ -126,10 +150,10 @@
 * your existing styles.
 */
 
-// Set the unsubscribe page title
+// Replace the unsubscribe page title with custom text
 $clave_profiles_unsub_title = '';
 
-// Wrap the unsubscribe page title in an <h1>
+// Wrap the unsubscribe page title in an <h1> instead of an <h3>
 $clave_profiles_unsub_header = false;
 
 /*
@@ -144,7 +168,7 @@ $clave_profiles_unsub_header = false;
 * only.
 */
 
-$clave_profiles_unsub_intro_1 = ''
+$clave_profiles_unsub_intro_replace = ''
 
 /*
 * 3. ADDITIONAL CUSTOM INTRO FOR PAGES #1, 2 AND 3
@@ -162,7 +186,7 @@ $clave_profiles_unsub_intro_1 = ''
 */
 
 // Set custom unsubscribe page intro (HTML will be interpreted)
-$clave_profiles_unsub_intro_3 = '';
+$clave_profiles_unsub_intro_custom = '';
 
 /*
 * 4. REMOVE SALSA'S DEFAULT H4 TAG AROUND INTRODUCTORY TEXT
@@ -176,7 +200,7 @@ $clave_profiles_unsub_intro_3 = '';
 */
 
 // Wrap the unsubscribe page intro in a <div>
-$clave_profiles_unsub_intro_4_div = false;
+$clave_profiles_unsub_intro_div = false;
 
 /*
 * 5a. CUSTOMIZE COMPLETELY UNSUBSCRIBED PAGE
@@ -217,6 +241,63 @@ $clave_profiles_unsub_partial_content = '';
 
 $clave_profiles_unsub_cancel_content = '';
 
+/*
+* *****************
+* PROFILE PAGES
+* *****************
+*/
+
+/*
+* PROFILE PAGE BASICS
+*
+* "User profiles" are Salsa's way of allowing supporters to manage their email
+* subscriptions (if you have multiple lists, or groups), as well as view some
+* information about their participation in the past, such as donations, actions
+* and events.
+*
+* In order to access this section, your supporters have to log in at the profile
+* login page, which is where they are taken if they click the "update your
+* profile" link at the bottom of an email message.
+*
+* Note that you can only use a template for profile pages if you alter the
+* default URL inserted into your emails -- see "a helpful note" at the very top
+* of this file.
+*/
+
+/*
+* 6. MODIFYING TEXT ON THE PROFILE LOGIN PAGE
+*
+* By default, the Salsa profile login page displays some pretty unengaging text
+* (listed below), so you may wish to alter it to custom values.
+*
+* You may also enable the header setting to change the <h2> wrapped around the
+* title to a semantically correct <h1> -- which is also more likely to match
+* your existing styles.
+*/
+
+// Replace the profile login page title with custom text.
+//
+// Default text:
+//   Manage Your Subscriptions
+$clave_profiles_login_title = '';
+
+// Wrap the profile login page title in an <h1> instead of an <h2>
+$clave_profiles_login_header = false;
+
+// Replace the profile login page introduction with custom text. HTML will be
+// interpreted.
+//
+// Default text:
+//    Please login below to do any of the following: unsubscribe from our email
+//    lists, add subscriptions, edit your contact information, etc.
+$clave_profiles_login_intro = '';
+
+// Replace the profile login page section header with custom text.
+//
+// Default text:
+//    Login now
+$clave_profiles_login_section_title = '';
+
 
 /*
 *  *************************************************************************
@@ -233,6 +314,7 @@ $(document).ready(function() {
 * 0. HELPER CLASSES
 */
 
+// Unsubscribe page helper classes
 if ($('#salsa-unsubscribe-form').length) {
   $('body').wrapInner('<div class="salsa unsubscribe" id="salsa" />');
 }
@@ -252,6 +334,31 @@ if ($('div:contains("Your subscription preferences are unchanged.")').length) {
   $('body').wrapInner('<div class="salsa unsubscribe unsubscribe--cancel" id="salsa" />');
 }
 
+// Profile login page helper classes
+if ($('#title:contains("Manage Your Subscriptions")').length) {
+  $('body').addClass('profile');
+  $('#title').addClass('profile-login-title');
+  $('#desc').wrap('<div class="profile-login-intro"/>');
+  $('.profile .login').addClass('profile-login-form');
+  $('.profile .login h3:contains("Login now")').addClass('profile-login-section-title');
+  $("#forgotpassword").contents().filter(function() { return this.nodeType != 1; }).wrap("<p class='profile-login-forgot-intro'></p>");
+}
+
+// Profile login page table removal
+if ($('#title:contains("Manage Your Subscriptions")').length) {
+  $('.profile .login > table').replaceWith('<p class="profile-login-remember"><input class="checkbox" type="checkbox" checked="checked" name="Remember_Me"> Keep me signed in for 2 weeks unless I sign out.</p>');
+  $('.profile .salsa > table').each(function (){
+    $(this).replaceWith( $(this).html()
+      .replace(/<tbody/gi, "<div class='profile-login-wrap'")
+      .replace(/<tr>/gi, "")
+      .replace(/<\/tr>/gi, "")
+      .replace(/<td/gi, "<div class='profile-login-section'")
+      .replace(/<\/td>/gi, "</div>")
+      .replace(/<\/tbody/gi, "<\/div")
+    );
+  });
+}
+
 /*
 * 1. UNSUBSCRIBE PAGE TITLE
 */
@@ -269,31 +376,33 @@ if($clave_profiles_unsub_header) {
 }
 
 /*
-* 2. UNSUBSCRIBE PAGE #1 INTRO
+* 2. REPLACE INTRODUCTORY TEXT ON UNSUBSCRIBE PAGE #1
 */
 
-if($clave_profiles_unsub_intro_1.length) {
-  $('.unsubscribe p:contains("Please verify your e-mail address to unsubscribe:")').text($clave_profiles_unsub_intro_1);
+if($clave_profiles_unsub_intro_replace.length) {
+  $('.unsubscribe p:contains("Please verify your e-mail address to unsubscribe:")').text($clave_profiles_unsub_intro_replace);
 }
 
 /*
-* 3. CUSTOM INTRO FOR PAGES #1, 2 AND 3
+* 3. ADDITIONAL CUSTOM INTRO FOR PAGES #1, 2 AND 3
 */
 
-// Set custom introductory text
-if($clave_profiles_unsub_intro_3.length) {
-  $('.unsubscribe .title').after('<div class="header">' + $clave_profiles_unsub_intro_3 + '</div>');
+if($clave_profiles_unsub_intro_custom.length) {
+  $('.unsubscribe .title').after('<div class="header">' + $clave_profiles_unsub_intro_custom + '</div>');
 }
 
-// Wrap the Salsa-provided introductory text in a <div> element
-if($clave_profiles_unsub_intro_4_div) {
+/*
+* 4. REMOVE SALSA'S DEFAULT H4 TAG AROUND INTRODUCTORY TEXT
+*/
+
+if($clave_profiles_unsub_intro_div) {
   $('.unsubscribe h4.header').each(function() {
     $(this).replaceWith( '<div class="header">' + $(this).html() + '</div>' );
   });
 }
 
 /*
-* 4a. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
+* 5a. CUSTOMIZE COMPLETELY UNSUBSCRIBED PAGE
 */
 
 if($clave_profiles_unsub_complete_content.length) {
@@ -301,7 +410,7 @@ if($clave_profiles_unsub_complete_content.length) {
 }
 
 /*
-* 4b. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
+* 5b. CUSTOMIZE PARTIALLY UNSUBSCRIBED PAGE
 */
 
 if($clave_profiles_unsub_partial_content.length) {
@@ -309,11 +418,37 @@ if($clave_profiles_unsub_partial_content.length) {
 }
 
 /*
-* 4c. CUSTOMIZE UNSUBSCRIBE CANCEL PAGE
+* 5c. CUSTOMIZE UNSUBSCRIBE CANCEL PAGE
 */
 
 if($clave_profiles_unsub_cancel_content.length) {
   $('.unsubscribe--cancel div:contains("Your subscription preferences are unchanged.")').replaceWith($clave_profiles_unsub_cancel_content);
+}
+
+/*
+* 6. MODIFYING TEXT ON THE PROFILE LOGIN PAGE
+*/
+
+// Replace the profile login page title with custom text.
+if($clave_profiles_login_title.length) {
+  $('.profile-login-title').text($clave_profiles_login_title);
+}
+
+// Wrap the profile login page title in an <h1>
+if($clave_profiles_login_header) {
+  $('.profile-login-title').each(function() {
+    $(this).replaceWith( '<h1 id="title" class="profile-login-title">' + $(this).html() + '</h1>' );
+  });
+}
+
+// Replace the profile login page introduction with custom text.
+if($clave_profiles_login_intro.length) {
+  $('#desc').replaceWith($clave_profiles_login_intro);
+}
+
+// Replace the profile login page section header with custom text.
+if($clave_profiles_login_section_title.length) {
+  $('.profile-login-section-title').text($clave_profiles_login_section_title);
 }
 
 }); // End of document ready
