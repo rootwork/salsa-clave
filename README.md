@@ -323,7 +323,7 @@ working for peace, justice and nonviolence since 1915.
 
 ## License
 
-Copyright (C) 2014-2015  Ivan Boothe
+Copyright (C) 2014-2016  Ivan Boothe
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
