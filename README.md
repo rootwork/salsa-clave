@@ -268,11 +268,11 @@ next step.
 Salsa Clave should be added. Edit each template and insert the following code
 at the end of the file just before the &lt;/body&gt; tag:
 
-    ```html
+```html
 <script src=""></script>
 ```
 
-    Then, paste the address of the file from the previous step in between the
+Then, paste the address of the file from the previous step in between the
 quotes. If you created multiple Salsa Clave files, repeat this step for each of
 the files, ensuring the compressed **clave-core.js** file is first.
 
