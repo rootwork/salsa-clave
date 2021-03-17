@@ -1,4 +1,7 @@
-**Note: This project is archived. No changes will be released. Salsa is a different beast than it was 10 years ago, the web is a different place, and jQuery is not the best solution (to put it mildly). Nonetheless, if you find it useful, feel free to use it anyway.**
+**Note: This project is archived. No changes will be released. Salsa is a
+different beast than it was 10 years ago, the web is a different place, and
+jQuery is not the best solution (to put it mildly). Nonetheless, if you find
+it useful, feel free to use it anyway.**
 
 # Salsa Clave
 
@@ -325,7 +328,7 @@ working for peace, justice and nonviolence since 1915.
 
 ## License
 
-Copyright (C) 2014-2016  Ivan Boothe
+Copyright (C) 2014-2021  Ivan Boothe
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
