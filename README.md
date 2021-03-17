@@ -1,3 +1,5 @@
+**Note: This project is archived. No changes will be released. Salsa is a different beast than it was 10 years ago, the web is a different place, and jQuery is not the best solution (to put it mildly). Nonetheless, if you find it useful, feel free to use it anyway.**
+
 # Salsa Clave
 
 Salsa Clave allows you to create sophisticated, customized forms hosted in
